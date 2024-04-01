@@ -1,0 +1,64 @@
+
+
+Linux C, getnameinfo()
+
+getnameinfo()函式是相對應於getaddrinfo() - freeaddrinfo()這一對函式的，把我們想要的資訊，填入到sockaddr_in或是sockaddr_in6，再轉型成sockaddr
+
+傳給getnameinfo()函式來取得主機名稱 (Host Name)和服務名稱 (Service Name)。可以取代原本的gethostbyaddr()和getservbyport() (也不能取代
+
+getprotobynumber()？)函式原型如下：
+
+#include <netdb.h>
+
+int 
+getnameinfo(sa, salen, host, hostlen, serv, servlen, flags);
+const struct sockaddr *sa;
+socklen_t salen;
+char *host;
+size_t hostlen;
+char *serv;
+size_t servlen;
+int flags;
+
+這乙個函式的參數有點多，有7個參數：
+
+第1個參數const struct sockaddr *sa; 和第2個參數socklen_t salen; 是我們要傳給getnameinfo()函式的sockaddr結構和它的結構大小；
+
+第3個參數char *host; 和第4個參數size_t hostlen; 是函式會用Call by Reference的方式傳回主機名稱和其字串長度；
+
+第5個參數char *serv; 和第6個參數size_t servlen; 是函式會用Call by Reference的方式傳回服務名稱和其字串長度；
+
+第7個參數int flags; 比較常用的是NI_NOFQDN─它會讓函式只回傳Host Name而不是全部的Domain Name；NI_NAMEREQD─若在DNS查詢時，無法找到Name，函式會回傳失敗。
+
+因為這個函式容易理解，所以範例也很簡單：Makefile & main.c.
+
+執行結果：
+
+picasso@PICASSO-VM:/media/01_getnameinfo$ 
+picasso@PICASSO-VM:/media/01_getnameinfo$ ./main
+strHostName: localhost (9) 
+strServName: telnet (6) 
+picasso@PICASSO-VM:/media/01_getnameinfo$ 
+picasso@PICASSO-VM:/media/01_getnameinfo$ cat /etc/hosts
+127.0.0.1	localhost
+127.0.1.1	PICASSO-VM
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+picasso@PICASSO-VM:/media/01_getnameinfo$ 
+picasso@PICASSO-VM:/media/01_getnameinfo$ cat /etc/services | grep "23"
+telnet		23/tcp
+ntp		123/udp				# Network Time Protocol
+ipx		213/udp				# IPX [RFC1234]
+asf-rmcp	623/udp		# ASF Remote Management and Control Protocol
+rmtcfg		1236/tcp			# Gracilis Packeten remote config server
+picasso@PICASSO-VM:/media/01_getnameinfo$ 
+
+
+我們手動要查詢的資料是IPv4 Address: "127.0.0.1", Port #4096，所以驗證/etc/hosts，127.0.0.1的Host Name就是"localhost"；查詢/etc/services，
+
+有2個Bridge Relay Element的服務就是運行在4096埠號。
