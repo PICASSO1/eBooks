@@ -1,4 +1,4 @@
-﻿/**
+/**
  * File Name: main.c
  *
  * CopyLeft (C) 2024, Picasso's Fantasy Notepad. All rights reserved.
@@ -38,8 +38,7 @@ int main(void)
 
   memset(strHostName, '\0', sizeof(char) * 32);
   memset(strServName, '\0', sizeof(char) * 32);
-  nRet = getnameinfo((struct sockaddr *)&stSockAddrIn, sizeof(struct sockaddr), strHostName, sizeof(char) * 32, \
-  strServName, sizeof(char) * 32, NI_NOFQDN);
+  nRet = getnameinfo((struct sockaddr *)&stSockAddrIn, sizeof(struct sockaddr), strHostName, sizeof(char) * 32, strServName, sizeof(char) * 32, NI_NOFQDN);
   if (nRet != 0) {
     fprintf(stderr, "getaddrinfo() error: %s \n", gai_strerror(nRet));
     exit(EXIT_FAILURE);

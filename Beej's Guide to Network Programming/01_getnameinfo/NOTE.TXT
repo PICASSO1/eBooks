@@ -1,12 +1,9 @@
 
-
 Linux C, getnameinfo()
 
-getnameinfo()¨ç¦¡¬O¬Û¹ïÀ³©ógetaddrinfo() - freeaddrinfo()³o¤@¹ï¨ç¦¡ªº¡A§â§Ú­Ì·Q­nªº¸ê°T¡A¶ñ¤J¨ìsockaddr_in©Î¬Osockaddr_in6¡A¦AÂà«¬¦¨sockaddr
+getnameinfo() å‡½å¼æ˜¯ç›¸å°æ‡‰æ–¼ getaddrinfo() - freeaddrinfo() é€™ä¸€å°å‡½å¼çš„ï¼ŒæŠŠæˆ‘å€‘æƒ³è¦çš„è³‡è¨Šï¼Œå¡«å…¥åˆ° sockaddr_in æˆ–æ˜¯ sockaddr_in6ï¼Œå†è½‰å‹æˆ sockaddr å‚³çµ¦ getnameinfo() å‡½å¼ä¾†å–å¾—ä¸»æ©Ÿåç¨± (Host Na
 
-¶Çµ¹getnameinfo()¨ç¦¡¨Ó¨ú±o¥D¾÷¦WºÙ (Host Name)©MªA°È¦WºÙ (Service Name)¡C¥i¥H¨ú¥N­ì¥»ªºgethostbyaddr()©Mgetservbyport() (¤]¤£¯à¨ú¥N
-
-getprotobynumber()¡H)¨ç¦¡­ì«¬¦p¤U¡G
+me)å’Œæœå‹™åç¨± (Service Name)ã€‚å¯ä»¥å–ä»£åŸæœ¬çš„ gethostbyaddr() å’Œ getservbyport() (ä¹Ÿä¸èƒ½å–ä»£getprotobynumber()ï¼Ÿ)å‡½å¼åŸå‹å¦‚ä¸‹ï¼š
 
 #include <netdb.h>
 
@@ -20,45 +17,36 @@ char *serv;
 size_t servlen;
 int flags;
 
-³o¤A­Ó¨ç¦¡ªº°Ñ¼Æ¦³ÂI¦h¡A¦³7­Ó°Ñ¼Æ¡G
+é€™ä¹™å€‹å‡½å¼çš„åƒæ•¸æœ‰é»å¤šï¼Œæœ‰7å€‹åƒæ•¸ï¼š
 
-²Ä1­Ó°Ñ¼Æconst struct sockaddr *sa; ©M²Ä2­Ó°Ñ¼Æsocklen_t salen; ¬O§Ú­Ì­n¶Çµ¹getnameinfo()¨ç¦¡ªºsockaddrµ²ºc©M¥¦ªºµ²ºc¤j¤p¡F
+ç¬¬1å€‹åƒæ•¸ const struct sockaddr *sa; å’Œç¬¬2å€‹åƒæ•¸ socklen_t salen; æ˜¯æˆ‘å€‘è¦å‚³çµ¦ getnameinfo() å‡½å¼çš„ sockaddr çµæ§‹å’Œå®ƒçš„çµæ§‹å¤§å°ï¼›
 
-²Ä3­Ó°Ñ¼Æchar *host; ©M²Ä4­Ó°Ñ¼Æsize_t hostlen; ¬O¨ç¦¡·|¥ÎCall by Referenceªº¤è¦¡¶Ç¦^¥D¾÷¦WºÙ©M¨ä¦r¦êªø«×¡F
+ç¬¬3å€‹åƒæ•¸ char *host; å’Œç¬¬4å€‹åƒæ•¸ size_t hostlen; æ˜¯å‡½å¼æœƒç”¨ Call by Reference çš„æ–¹å¼å‚³å›ä¸»æ©Ÿåç¨±å’Œå…¶å­—ä¸²é•·åº¦ï¼›
 
-²Ä5­Ó°Ñ¼Æchar *serv; ©M²Ä6­Ó°Ñ¼Æsize_t servlen; ¬O¨ç¦¡·|¥ÎCall by Referenceªº¤è¦¡¶Ç¦^ªA°È¦WºÙ©M¨ä¦r¦êªø«×¡F
+ç¬¬5å€‹åƒæ•¸ char *serv; å’Œç¬¬6å€‹åƒæ•¸ size_t servlen; æ˜¯å‡½å¼æœƒç”¨ Call by Referenceçš„æ–¹å¼å‚³å›æœå‹™åç¨±å’Œå…¶å­—ä¸²é•·åº¦ï¼›
 
-²Ä7­Ó°Ñ¼Æint flags; ¤ñ¸û±`¥Îªº¬ONI_NOFQDN¢w¥¦·|Åı¨ç¦¡¥u¦^¶ÇHost Name¦Ó¤£¬O¥ş³¡ªºDomain Name¡FNI_NAMEREQD¢w­Y¦bDNS¬d¸ß®É¡AµLªk§ä¨ìName¡A¨ç¦¡·|¦^¶Ç¥¢±Ñ¡C
+ç¬¬7å€‹åƒæ•¸ int flags; æ¯”è¼ƒå¸¸ç”¨çš„æ˜¯ NI_NOFQDN â”€å®ƒæœƒè®“å‡½å¼åªå›å‚³ Host Name è€Œä¸æ˜¯å…¨éƒ¨çš„ Domain Nameï¼›NI_NAMEREQDâ”€è‹¥åœ¨DNSæŸ¥è©¢æ™‚ï¼Œç„¡æ³•æ‰¾åˆ°Nameï¼Œå‡½å¼æœƒå›å‚³å¤±æ•—ã€‚
 
-¦]¬°³o­Ó¨ç¦¡®e©ö²z¸Ñ¡A©Ò¥H½d¨Ò¤]«ÜÂ²³æ¡GMakefile & main.c.
+å› ç‚ºé€™å€‹å‡½å¼å®¹æ˜“ç†è§£ï¼Œæ‰€ä»¥ç¯„ä¾‹ä¹Ÿå¾ˆç°¡å–®ï¼šMakefile & main.c.
 
-°õ¦æµ²ªG¡G
+åŸ·è¡Œçµæœï¼š
 
-picasso@PICASSO-VM:/media/01_getnameinfo$ 
-picasso@PICASSO-VM:/media/01_getnameinfo$ ./main
+[root@localhost ~]# 
+[root@localhost ~]# ./getnameinfo 
 strHostName: localhost (9) 
 strServName: telnet (6) 
-picasso@PICASSO-VM:/media/01_getnameinfo$ 
-picasso@PICASSO-VM:/media/01_getnameinfo$ cat /etc/hosts
+[root@localhost ~]# 
+[root@localhost ~]# cat /etc/hosts
 127.0.0.1	localhost
-127.0.1.1	PICASSO-VM
+127.0.1.1	picasso-devel-pc
 
-# The following lines are desirable for IPv6 capable hosts
-::1     ip6-localhost ip6-loopback
-fe00::0 ip6-localnet
-ff00::0 ip6-mcastprefix
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-picasso@PICASSO-VM:/media/01_getnameinfo$ 
-picasso@PICASSO-VM:/media/01_getnameinfo$ cat /etc/services | grep "23"
+[root@localhost ~]# 
+[root@localhost ~]# cat -n /etc/services | grep "23" --color 
 telnet		23/tcp
 ntp		123/udp				# Network Time Protocol
 ipx		213/udp				# IPX [RFC1234]
 asf-rmcp	623/udp		# ASF Remote Management and Control Protocol
 rmtcfg		1236/tcp			# Gracilis Packeten remote config server
-picasso@PICASSO-VM:/media/01_getnameinfo$ 
+[root@localhost ~]# 
 
-
-§Ú­Ì¤â°Ê­n¬d¸ßªº¸ê®Æ¬OIPv4 Address: "127.0.0.1", Port #4096¡A©Ò¥HÅçÃÒ/etc/hosts¡A127.0.0.1ªºHost Name´N¬O"localhost"¡F¬d¸ß/etc/services¡A
-
-¦³2­ÓBridge Relay ElementªºªA°È´N¬O¹B¦æ¦b4096°ğ¸¹¡C
+æˆ‘å€‘æ‰‹å‹•è¦æŸ¥è©¢çš„è³‡æ–™æ˜¯ IPv4 Address: "127.0.0.1", Port #23ï¼Œæ‰€ä»¥é©—è­‰ /etc/hostsï¼Œ127.0.0.1 çš„ Host Nameå°± æ˜¯"localhost"ï¼›æŸ¥è©¢ /etc/servicesï¼Œæœ‰1å€‹ telnet çš„æœå‹™å°±æ˜¯é‹è¡Œåœ¨ 23 åŸ è™Ÿã€‚
