@@ -1,0 +1,42 @@
+
+Linux C, htonl(), htons(), ntohl(), ntohs()
+
+繼上一篇文章 Linux Socket Programming 的開場白："Linux C, inet_addr(), inet_aton(), inet_ntoa(), inet_pton(), inet_ntop()"之後，如果有認真執行程式碼的話，會注意到一個問題：我們的 IPv4 Address: 
+
+192.168.1.1 轉換成１６進制時是0xC0A80101；為何程式的執行結果卻是0x0101A8C0？原來這是 Socket Programming 中 Byte Order (位元組順序)的問題，類似 Driver Programming 中的 Big-Endian / Little-Endian
+
+或是MSB (Most Significant Bit) / LSB (Least Significant Bit)。
+
+為了解決這樣的差異，Linux系統也提供以下這4種函式轉換：
+
+#include <stdio.h>
+#include <netinet/in.h>
+
+// Host to Network, long type; for IPv4 Address
+unsigned long int htonl(unsigned long int hostlong); 
+
+// Host to Network, short type; for Port Number
+unsigned short int htons(unsigned short int hostshort); 
+
+// Network to Host, long type; for IPv4 Address
+unsigned long int ntohl(unsigned long int netlong); 
+
+// Network to Host, short type; for Port Number
+unsigned short int ntohs(unsigned short int netshort);
+
+因為不只有Address有這問題，Port Number (埠號)也會有，所以也提供了unsigned short int資料型態的函式。範例及執行結果如下：Makefile & main.c.
+
+[root@localhost ~]# 
+[root@localhost ~]# ./main
+IP Address: 192.168.1.1 (0xC0A80101);
+htonl(0xC0A80101): 0x0101A8C0
+
+Port      : 2048        (0x    0800);
+htons(0x    0800): 0x00000008
+
+Network Byte Order: 0x0101A8C0;
+ntohl(0x0101A8C0): 0xC0A80101
+
+Network Byte Order: 0x00000008;
+ntohs(0x00000008): 0x00000800
+[root@localhost ~]# 
