@@ -1,0 +1,65 @@
+
+Linux C, inet_addr(), inet_aton(), inet_ntoa(), inet_pton(), inet_ntop()
+
+最近在開始接觸 Linux Socket Programming 了！先把一些基本常用的函式先記一下，因為平常都沒寫過，一下子腦袋都搞亂掉了....先把學習心得記錄下來！
+
+當我們在描述一個 IP Address 的時後，例如：192.168.1.1 或是 127.0.0.1，這樣的一個 IPv4 格式，是給人類看的，比較直覺，比較易懂。可是要給電腦 (計算機)看的時後，就完全不是這麼一回事兒，這中間必須要經
+
+過一個轉換的過程。首先，把這２組 IPv4 Address 用２進制來表示，每一個數字用１個Byte來呈現然後再把小數點 ('.')移除，如下：
+
+192.168.1.1 == 1100 0000  1010 1000  0000 0001  0000 0001
+127.  0.  0.1 == 0111 1111  0000 0000  0000 0000  0000 0001
+
+為了方便閱讀，做了一下簡單的排版─每１組 Byte 之間用２個空白鍵 (Space)；每１個 Byte 有８個 bit，每４個 bit 之間用１個空白鍵。
+
+可是，這樣子一堆１、一堆０的，變得人腦很難理解；於是程式設計師們在撰寫程式時不會用２進制表示法，而是改用１６進制：
+
+1100 0000  1010 1000  0000 0001  0000 0001 = 0xC0A80101
+0111 1111  0000 0000  0000 0000  0000 0001 = 0x7F000001
+
+在撰寫 Socket Programming 的時後，Linux 也有提供一個名為 in_addr (Internet Address) 的結構 (structure)，裡面只有一個成員 unsigned long int s_addr; 所以我們得知在 Linux 底下 IPv4 Address 是以
+
+unsigned long int 的方式來儲存：
+
+// define in: /usr/include/netinet/in.h
+struct in_addr {
+    unsigned long int s_addr;
+};
+
+所以呢，為了要把人腦易理解的 "192.168.1.1" 和 "127.0.0.1" 轉換成電腦懂的 0xC0A80101 和 0x7F000001，所以就有下面這５個函式的誕生：
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+unsigned long int inet_addr(const char *cp);
+
+/* ASCII to Network */
+int inet_aton(const char *cp, struct in_addr *inp);
+
+/* Network to ASCII */
+char *inet_ntoa(struct in_addr in);
+
+/* Presentation to Network */
+int inet_pton(int af, const char *src, void *dst);
+
+/* Network to Presentation */
+const char *inet_ntop(int af, const void *src, char *dst, socklen_t size);
+
+就字面上而言都還蠻容易理解的，所以就不贅述了，直接看範例和用法：Makefile & main.c.
+
+執行結果：
+
+[root@localhost ~]# 
+[root@localhost ~]# ./main
+IPv4 inet_addr("192.168.1.1") = 0x0101A8C0 (16885952) 
+
+IPv4 inet_aton(): nRet = 1; stInAddr.s_addr = 0x0101A8C0 (16885952) 
+
+IPv4 inet_ntoa(): 192.168.1.1 (11);  
+
+IPv4 inet_pton(): 0x0100007F (16777343) 
+
+IPv4 inet_ntop(): ptr = 127.0.0.1 (9); strIPv4Address: 127.0.0.1 (9) 
+
+[root@localhost ~]# 
