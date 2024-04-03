@@ -1,0 +1,141 @@
+
+Linux C, getifaddrs(), freeifaddrs()
+
+最近在學習 Linux Socket Programming 時，忽然想到，自己在做的所有練習，為了能夠在同一臺作業系統中方便運行，所以都是使用 "localhost" 、 "127.0.0.1" 和 Port #8080 這一類的資訊，
+
+但在實際運作上當然不可能跑這種資訊。假如，我想要運作一個 Server 端的程序，程式一執行起來就要能夠 Work，那我撰寫程式時，該如何得知本機的 IP Address？我的第一個直覺，就是透過 ifconfig 指令：
+
+[root@localhost ~]# 
+[root@localhost ~]# ifconfig
+eth1 Link encap:Ethernet  HWaddr 08:00:27:AA:0F:85  
+   inet addr:10.1.1.104  Bcast:10.1.1.255  Mask:255.255.255.0
+     inet6 addr: fe80::a00:27ff:feaa:f85/64 Scope:Link
+     UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+     RX packets:6064880 errors:0 dropped:0 overruns:0 frame:0
+     TX packets:44900 errors:0 dropped:0 overruns:0 carrier:0
+     collisions:0 txqueuelen:1000 
+     RX bytes:492960917 (470.1 MiB)TX bytes:7086968 (6.7 MiB)
+
+lo Link encap:Local Loopback  
+   inet addr:127.0.0.1  Mask:255.0.0.0
+   inet6 addr: ::1/128 Scope:Host
+   UP LOOPBACK RUNNING  MTU:16436  Metric:1
+   RX packets:844297 errors:0 dropped:0 overruns:0 frame:0
+   TX packets:844297 errors:0 dropped:0 overruns:0 carrier:0
+   collisions:0 txqueuelen:0 
+   RX bytes:119166264(113.6 MiB)TX bytes:119166264(113.6 MiB)
+
+virbr0 Link encap:Ethernet  HWaddr 66:26:94:E6:9D:A2  
+       inet addr:192.168.122.1 Bcast:192.168.122.255 Mask:255.255.255.0
+       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+       RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+       TX packets:488 errors:0 dropped:0 overruns:0 carrier:0
+       collisions:0 txqueuelen:0 
+       RX bytes:0 (0.0 b)  TX bytes:230743 (225.3 KiB)
+
+[root@localhost ~]# 
+[root@localhost ~]# 
+
+ifconfig 指令可以看到非常多的資訊，如 IPv4 Address 、 Broadcast (廣播位址) 、Netmask (網路遮罩) 、Link Encapsulation (連線的資料封裝方式) 為 Ethernet (乙太網
+
+路)，所以 MTU (Maximum Transmission Unit，最大傳輸單位)就是 1500 (Bytes)、MAC Address、IPv6 Address、Tx/Rx的封包數量等等。但我真正想要的資訊就只有
+
+IPv4 Address: 10.1.1.104，那是不是有一個方法 (或函式)，可以直接就抓到網路位址，讓 Server 端的程序直接運作？上網 Google 一下還真的有 getifaddrs(); / freeifaddrs(); 
+
+這一對函式可以用！再深入思考，實際運作上一臺電腦可能有兩張以上的網路卡，所以介面可能會像這樣：eth0, eth1；或是安裝在 VMWare 或是 VirtualBox 中還會有 virbr0；若是使用 xDSL 建立 PPPoE 連線就
+
+會有 ppp0 的介面，這些可變的因素太多了，以個人的淺見而言，還不如把 IP Address、Broadcast 和 Netmask 這些資訊寫在一個 *.conf 檔中，讓程式一運行時就讀取，會不會比較實際？
+
+以上都是題外話，這一次要記下來的是 getifaddrs();/freeifaddrs(); 這一對函式，跟這一對函式相關的有一個資料結構 struct ifaddrs，它們都是寫在同一個標頭檔中：
+
+#include <ifaddrs.h>    /* Interface Address */
+
+struct ifaddrs {
+    struct ifaddrs *ifa_next;
+    /* 這是一個 Link List，這一個指標指到下一個 ifaddrs 結構 */
+    char *ifa_name;
+    /* 網路介面名稱：br0, eth0, eth1, ppp0, virbr0, etc.. */
+    unsigned int ifa_flags;
+    /* 這是給 ioctl(); 函式的 SIOCGIFFLAGS 用的.... */
+    struct sockaddr *ifa_addr;             /* 網路位址 */
+    struct sockaddr *ifa_netmask;          /* 網路遮罩 */
+    union {
+        struct sockaddr *ifu_broadaddr;    /* 廣播位址 */
+        struct sockaddr *ifu_dstaddr;
+        /* 假如這個連線是PPP的話，這是指遠端的位址 */
+    } ifa_ifu;
+#ifndef ifa_broadaddr
+#define ifa_broadaddr    ifa_ifu.ifu_broadaddr
+#endif
+#ifndef ifa_dstaddr
+#define ifa_dstaddr      ifa_ifu.ifu_dstaddr
+#endif
+    void *ifa_data;                        /* 位址的特殊資料，也有可能用不到 */
+};
+
+int getifaddrs(struct ifaddrs **__ifap);
+
+void freeifaddrs(struct ifaddrs *__ifa);
+
+Google Blogger 的內嵌程式碼排版感覺沒那麼完善，每一行只容的下６２個字元，所以我只好不斷地縮排和換行：Makefile & main.c.
+
+當我寫完這一個範例之後，發現自己不懂的地方又更多了。除了，原本的 AF_INET 和 AF_INET6 ，分別代表 IPv4 和 IPv6 的資訊；但我的執行環境，還有一個 AF_PACKET ，這一部份我目前並不清楚，所以就不敢寫 (暫
+
+時不深入瞭解)。當我寫到 IPv6 的時後又發現，ifaddrs 結構裡的成員 ifa_addr、ifa_netmask、ifu_broadaddr 和 ifu_dstaddr 它們都是一個「指到 struct sockaddr *結構的
+
+指標」，但遇到 struct sockaddr * 時，必須將指標轉型成 struct sockaddr_in *，這一部份在 IPv4 是沒有問題的。但是遇到 IPv6 轉型成 struct sockaddr_in6 * 時就會生記憶體
+
+區段錯誤的問題。於是，我把資料結構的大小比對一下：
+
+sizeof(struct sockaddr) = 16
+sizeof(struct sockaddr_in) = 16
+sizeof(struct sockaddr_in6) = 28
+sizeof(struct sockaddr_storage) = 128
+
+struct sockaddr 和 struct sockaddr_in 都資料結構大小都是１６Bytes，所以互相轉換是沒有問題的；但 struct sockaddr_in6 的大小是２８Bytes，當然不能把指到 struct
+
+sockaddr 的指標，轉換成指到 struct sockaddr_in6。如果是這樣子的話，那 struct ifaddrs 和 getifaddrs(); 不是就只能呈現 IPv4 的資訊嗎？
+
+[root@localhost ~]# 
+[root@localhost ~]# ./main
+
+
+IPv4 Interface (AF_INET, 2): 
+pNext->ifa_name: lo 
+pNext->ifa_flags: 65609 
+IPv4 Address: 
+pSockAddr_In4->sin_family: 2 
+pSockAddr_In4->sin_port: 0 
+pSockAddr_In4->sin_addr: 127.0.0.1 
+IPv4 Address Netmask: 
+pSockAddr_In4->sin_family: 2 
+pSockAddr_In4->sin_port: 0 
+pSockAddr_In->sin_addr: 255.0.0.0 
+IPv4 Broadcast Address: 
+pSockAddr_In4->sin_family: 2 
+pSockAddr_In4->sin_port: 0 
+pSockAddr_In4->sin_addr: 127.0.0.1 
+pNext->ifa_data: 00 01 02 03 04 05 06 07 (8) 
+
+IPv4 Interface (AF_INET, 2): 
+pNext->ifa_name: enp0s3 
+pNext->ifa_flags: 69699 
+IPv4 Address: 
+pSockAddr_In4->sin_family: 2 
+pSockAddr_In4->sin_port: 0 
+pSockAddr_In4->sin_addr: 192.168.1.103 
+IPv4 Address Netmask: 
+pSockAddr_In4->sin_family: 2 
+pSockAddr_In4->sin_port: 0 
+pSockAddr_In->sin_addr: 255.255.255.0 
+IPv4 Broadcast Address: 
+pSockAddr_In4->sin_family: 2 
+pSockAddr_In4->sin_port: 0 
+pSockAddr_In4->sin_addr: 192.168.1.255 
+pNext->ifa_data: 00 01 02 03 04 05 06 07 (8) 
+
+
+
+[root@localhost ~]# 
+
+從執行結果來看，基本上 IPv4 的 Address, Broadcast, Netmask 和 Interface Name 都可以順利地找到；至於最後一個成員 void *ifa_data 是代表什麼意思，有空再研究好了！
