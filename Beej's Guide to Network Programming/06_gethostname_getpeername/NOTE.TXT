@@ -30,8 +30,8 @@ gethostname(): strHostName: PICASSO-VM (10)
 
 #include <netinet/in.h>
 
-#define INET_ADDRSTRLEN     16    // IPv4的字串長度
-#define INET6_ADDRSTRLEN    46    // IPv6的字串長度
+#define INET_ADDRSTRLEN     16    /* IPv4的字串長度 */
+#define INET6_ADDRSTRLEN    46    /* IPv6的字串長度 */
 
 /* 這一組是定義IPv4 Address */
 struct in_addr {

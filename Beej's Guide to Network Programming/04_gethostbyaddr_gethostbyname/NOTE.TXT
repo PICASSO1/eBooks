@@ -1,0 +1,64 @@
+
+Linux C, gethostbyaddr(), gethostbyname()
+
+#include <netdb.h>
+
+struct hostent {                  /* Host Entry */
+    char *h_name;                 /* 正式的主機名稱 */
+    char **h_aliases;             /* 指向主機名稱的其他別名 */
+    int h_addrtype;               /* 位址的型態，通常是AF_INET */
+    int h_length;                 /* 位址的長度 */
+    char **h_addr_list;           /* 從名稱伺服器取得該主機的所有位址 */
+};
+
+struct hostent *gethostbyaddr(const void *addr, int len, int type);
+struct hostent *gethostbyname(const char *name);
+
+這2個函式的相關檔案為 "/etc/hosts"：
+
+1. gethostbyaddr(); 藉由 IP Address 來取得 /etc/hosts 的相關資料；第1個參數為 IP Address，需把 inet_addr("127.0.0.1") 儲存在 struct in_addr；
+   第2個參數為 in_addr 的結構長度；第3個參數為 Protocol 的類型，如 AF_INET, AF_INET6。
+
+2. gethostbyname(); 藉由 Host Name 或 Domain Name 來取得 /etc/hosts 的相關資料；只有1個參數為主機名稱或是網路名稱，如："localhost"。
+
+範例：Makefile & gethostbyaddr.c；執行結果：
+
+[root@localhost gethostbyaddr]# 
+[root@localhost gethostbyaddr]# ./main 
+gethostbyaddr(): 
+stHost->h_name: localhost 
+
+stHost->h_aliases: localhost.localdomain 
+stHost->h_aliases: localhost4 
+stHost->h_aliases: localhost4.localdomain4 
+
+stHost->h_addrtype = 2 
+stHost->h_length = 4 
+
+stHost->h_addr_list: 
+IP Address: 127.0.0.1 
+[root@localhost gethostbyaddr]# 
+[root@localhost gethostbyaddr]# 
+
+範例：Makefile & gethostbyname.c；執行結果：
+
+[root@localhost gethostbyname]# 
+[root@localhost gethostbyname]# ./main 
+gethostbyname(): 
+stHost->h_name: localhost 
+
+stHost->h_aliases: localhost.localdomain 
+stHost->h_aliases: localhost4 
+stHost->h_aliases: localhost4.localdomain4 
+stHost->h_aliases: localhost.localdomain 
+stHost->h_aliases: localhost6 
+stHost->h_aliases: localhost6.localdomain6 
+
+stHost->h_addrtype = 2 
+stHost->h_length = 4 
+
+stHost->h_addr_list: 
+stHost->h_addr_list: 
+IPv4 Address: 127.0.0.1 
+[root@localhost gethostbyname]# 
+[root@localhost gethostbyname]# 
