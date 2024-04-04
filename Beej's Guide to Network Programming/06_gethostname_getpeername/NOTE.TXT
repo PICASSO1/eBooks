@@ -1,0 +1,107 @@
+
+Linux C, gethostname(), getpeername()
+
+最近在瞭解 Linux Socket Programming 的時後，注意到這一個範疇的函式和相關的資料型態，用來用去都是那幾個；現在只不過是不熟，所以用起來覺得很陌生。不過這都不打緊，反正熟能生巧，勤能補拙，既然不熟，多練習就對了。
+
+剛好自己的部落格可以拿來記錄一下學習心得。
+
+這一次要記下來的 gethostname(); 和 getpeername(); 這兩個函式剛好是一對的，如下：
+
+#include <sys/unistd.h>
+/* 取得本機 (Local)的主機名稱 (Host Name) */
+int gethostname(char *name, size_t len);
+
+#include <sys/socket.h>
+/* 取得遠端 (Remote)的主機名稱 (Host Name) */
+int getpeername(int s, struct sockaddr *addr, socklen_t len);
+
+範例程式碼：Makefile & main.c. 執行結果：
+
+[root@localhost ~]# 
+[root@localhost ~]# ./main 
+gethostname(): strHostName: PICASSO-VM (10)
+[root@localhost ~]#
+
+因為自己很懶，發現 Socket Programming 的標頭檔 (*.h)用來用去都是那幾個，所以就乾脆全部都 include 進來，就不用單獨去記那一個函式要對應到那一個標頭檔。這個 gethostname(); 函式比較簡單，程式一
+
+執行就直接帶出本機的主機名稱，且計算它的字串長度。getpeername(); 函式是要搭配一組 Server - Client 的函式才能夠運作，這裡就暫時不先考慮。除此之外，Socket Programming 還經常用到一些挺固定的
+
+資料結構，在這裡也順便記一下：
+
+#include <netinet/in.h>
+
+#define INET_ADDRSTRLEN     16    // IPv4的字串長度
+#define INET6_ADDRSTRLEN    46    // IPv6的字串長度
+
+/* 這一組是定義IPv4 Address */
+struct in_addr {
+    in_addr_t s_addr;    /* that's a 32-bit int (4 bytes) */
+};
+
+/* 這一組是定義IPv6 Address */
+struct in6_addr {
+    union {
+        uint8_t   __u6_addr8[16];
+#if defined __USE_MISC || defined __USE_GNU
+        uint16_t  __u6_addr16[8];
+        uint32_t  __u6_addr32[4];
+#endif
+    } __in6_u;
+#define s6_addr    __in6_u.__u6_addr8
+#if defined __USE_MISC || defined __USE_GNU
+#define s6_addr16  __in6_u.__u6_addr16
+#define s6_addr32  __in6_u.__u6_addr32
+#endif
+};
+
+in_addr_t 的資料型態為 unsigned int; (4 bytes)。
+
+#include <netinet/in.h>
+
+struct sockaddr_in {
+    short int sin_family;         /* Address Family: AF_INET, etc.. */
+    in_port_t sin_port;           /* Port number. */
+    struct in_addr sin_addr;// Internet address. 
+    unsigned char sin_zero[sizeof(struct sockaddr) - __SOCKADDR_COMMON_SIZE - sizeof(in_port_t) - sizeof(struct in_addr)];
+//  unsigned char sin_zero[8];    /* Pad to size of `struct sockaddr'. */
+};
+
+struct sockaddr_in6 {
+    uint16_t sin6_family;         // Address Family: AF_INET6, etc.. */
+    in_port_t sin6_port;          /* Transport layer port # */
+    uint32_t sin6_flowinfo;       /* IPv6 flow information */
+    struct in6_addr sin6_addr;    /* IPv6 address */
+    uint32_t sin6_scope_id;       /* IPv6 scope-id */
+};
+
+sockaddr_in / sockaddr_in6 裡有一個結構成員 sin_port / sin6_port，它的宣告是 in_port_t，其資料型態為 unsigned short; 
+
+#include <socket.h>
+
+struct sockaddr {
+    unsigned short sa_family;     /* AF_****, etc.. */
+    char sa_data[14];             /* 14 bytes for Protocol Address */
+};
+
+#include <netdb.h>
+
+struct addrinfo {
+    int ai_flags;
+    /* AI_PASSIVE, AI_CANONNAME, etc.. `/usr/include/netdb.h` */
+    int ai_family;
+    /* AF_UNSPEC, AF_INET, AF_INET6, etc.. `/usr/include/bits/socket.h` */
+    int ai_socktype;
+    /* SOCK_STREAM, SOCK_DGRAM, SOCK_RAW, etc.. `/usr/include/bits/socket.h` */
+    int ai_protocol;
+    /* Protocol for socket?? */
+    socklen_t ai_addrlen;
+    /* Length of socket address?? */
+    struct sockaddr *ai_addr;
+    /* Socket address for socket. */
+    char *ai_canonname;
+    /* Canonical name for service location. */
+    struct addrinfo *ai_next;
+    /* Pointer to next in list. */
+};
+
+socklen_t 的資料型態原型定義為 unsigned int; 
