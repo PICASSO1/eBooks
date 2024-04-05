@@ -1,0 +1,51 @@
+
+Linux C, getservbyname(), getservbyport, getservent(), endservent()
+
+#include <netdb.h>
+
+struct servent {
+    char *s_name;                 /* Official service name. */
+    char **s_aliases;             /* Alias list. */
+    int s_port;                   /* Port number. */
+    char *s_proto;                /* Protocol to use. */
+};
+
+struct servent *getservbyname(const char *name, const char *proto);
+struct servent *getservbyport(int port, const char *proto);
+struct servent *getservent(void);
+void endservent(void);
+
+這４個函式的相關檔案為 "/etc/services"：
+
+1. getservbyname(); 藉由網路名稱來取得 /etc/services 的相關資料；第１個參數為服務名稱，如 "telnet"，第２個參數為協定，如 "tcp" 或 "udp" 。
+
+2. getservbyport(); 藉由埠號 (Port #)來取得 /etc/services 的相關資料；第１個參數為埠號，如 htons(69)，第２個參數為協定，如 "udp" 或 "tcp" 。
+
+3. getservent(); (Get Service Entry)，取得 /etc/services 的資料。
+
+4. endservent(); 和 getservent(); 是一對的；用 getservent(); 讀取 /etc/services 的資料之後，要用 endservent(); 函式來關閉。
+
+範例：Makefile & main.c
+
+因為 /etc/services 的檔案挺多的，可以加上一個管線 (|)把它引導到 less ....
+
+[root@localhost ~]# 
+[root@localhost ~]# ./main | less
+getservbyname("telnet", "tcp"): 
+Service Name: telnet 
+Alias List  : 
+Port Number : 23 
+Protocol    : tcp 
+
+getservbyport(htons(69), "udp"): 
+Service Name: tftp 
+Alias List  : 
+Port Number : 69 
+Protocol    : udp 
+
+getservent(): 
+tcpmux          , 1/tcp 
+echo            , 7/tcp 
+echo            , 7/udp 
+discard         , 9/tcp 
+discard         , 9/udp 
