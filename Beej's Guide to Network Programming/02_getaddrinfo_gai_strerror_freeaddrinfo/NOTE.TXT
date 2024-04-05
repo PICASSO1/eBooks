@@ -1,0 +1,101 @@
+
+Linux C, getaddrinfo(), gai_strerror(), freeaddrinfo()
+
+getaddrinfo(); 這個函式，教科書上說是一個很棒的函式 (其實怎麼用還不是很清楚)，可以用來取代 gethostbyname(); 和 getservbyname(); (不能取代 getprotobyname(); 嗎？)。
+
+getaddrinfo(); 函式有一個關鍵性的結構─ struct addrinfo，內容及解釋，還有相對應的對照標頭檔，我都記錄在下面：
+
+#include <netdb.h>
+
+struct addrinfo {
+    int ai_flags;
+    /* AI_PASSIVE, AI_CANONNAME, etc.. */
+    /* defined: /usr/include/netdb.h */
+    int ai_family;    
+    /* AF_UNSPEC, AF_INET, AF_INET6, etc.. */
+    /* defined: /usr/include/bits/socket.h */
+    int ai_socktype;   
+    /* SOCK_STREAM, SOCK_DGRAM, SOCK_RAW, etc.. */
+    /* defined: /usr/include/bits/socket.h */
+    int ai_protocol;   
+    /* IPPROTO_TCP, IPPROTO_UDP, etc.. */
+    /* defined: /usr/include/linux/in.h; */
+    /* defined: /usr/include/netinet/in.h */
+    socklen_t ai_addrlen;         /* Length of socket address. */
+    struct sockaddr *ai_addr;     /* Socket address for socket. */
+    char *ai_canonname;
+    /* Canonical name for service location. */
+    struct addrinfo *ai_next;     /* Pointer to next in list. */
+};
+
+int 
+getaddrinfo(nodename, servname, hints, res);
+const char *nodename;
+const char *servname;
+const struct addrinfo *hints;
+struct addrinfo **res;
+
+const char *gai_strerror(int ecode);
+void freeaddrinfo(struct addrinfo *ai);
+
+1. getaddrinfo(); (Get Address Information)，取得主機的名稱和相關的服務資訊，並將結果儲存於 struct addrinfo。
+   第一個參數 const char *nodename; 可以是一個 Host Name，例如 "localhost" 或是 "www.google.com"；也可以是一個 IPv4 或是 IPv6 的 Address，但必須以字串 
+   (String)的形式呈現，例如 "127.0.0.1"。
+   第二個參數 const char *servname; 可以是一個 Service Name，如 "http"、"tftp"；也可以是一個 Port Number，也必須以字串的形式表達，如 "8080"。
+   第三個參數 const struct addrinfo *hints; 的用意是你要叫 getaddrinfo(); 做什麼事情？你要先把相關的資料填好然後傳進去。
+   第四個參數 struct addrinfo **res; 則是 getaddrinfo(); 函式會把結果以鏈結串列 (Link List)的方式回傳出來。
+
+2. getaddrinfo(); 函式的回傳值不一定是-1，它是一個狀態值 (Status)，這個狀態值是什麼意思？就必須搭配 gai_strerror(); 函式來解譯；gai_strerror(); 函式所傳進去的唯一參數就是 ge
+   taddrinfo(); 回傳的狀態值。
+
+3. 最後，因為 getaddrinfo(); 會參照到一個鏈結串列，所以必須用 freeaddrinfo(); 函式把 Link List 中所配置的記憶體空間給釋放掉。
+
+下面這一個範例 (Makefile & main.c.)用法，其實沒有太大的意義，我想取得的資訊是：主機名稱為 "localhost"，埠號為 "8080"，無論是 IPv4 或 IPv6 的協定 (AF_UNSPEC)，通訊類型要為 
+
+TCP/IP (SOCK_STREAM)，然後任何一個 IP Address 都行 (AI_PASSIVE，IPv4 為 INADDR_ANY，IPv6 為 in6addr_any)。因為回傳的結果會是一個鏈結串列，所以我把鏈結串列的內容
+
+列印出來，直到鏈結串列的 Next 指標指到 NULL 值為止。
+
+執行結果：
+
+[root@localhost ~]# 
+[root@localhost ~]# ./main
+pNext->ai_flags = 1               /* AI_PASSIVE */
+pNext->ai_family = 10             /* AF_INET6 */
+pNext->ai_socktype = 1            /* SOCK_STREAM */
+pNext->ai_protocol = 6            /* IPPROTO_TCP */
+pNext->ai_addrlen = 28 
+pSockAddrIn6 = (struct sockaddr_in6 *)pNext->ai_addr; 
+pSockAddrIn6->sin6_family = 10    /* AF_INET6 */
+pSockAddrIn6->sin6_port = 8080    /* Port # */
+pSockAddrIn6->sin6_flowinfo = 0
+pSockAddrIn6->sin6_addr = ::1     /* IPv6 Address */
+pSockAddrIn6->sin6_scope_id = 0 
+pNext->ai_canonname: (null) 
+
+pNext->ai_flags = 1               /* AI_PASSIVE */
+pNext->ai_family = 2              /* AF_INET */
+pNext->ai_socktype = 1            /* SOCK_STREAM */
+pNext->ai_protocol = 6            /* IPPROTO_TCP */
+pNext->ai_addrlen = 16 
+pSockAddrIn = (struct sockaddr_in *)pNext->ai_addr; 
+pSockAddrIn->sin_family = 2       /* AF_INET */
+pSockAddrIn->sin_port = 8080      /* Port # */
+pSockAddrIn->sin_addr = 127.0.0.1 /* IPv4 Address */
+pNext->ai_canonname: (null)
+
+[root@localhost ~]# 
+
+基本上，看這些數字並沒有太大的意義，必須搭配 struct addrinfo 中所對應的 Header File，才知道是什麼意思。所以我就把那些數值的意義註解在後面。
+
+在 addrinfo 結構當中，ai_addrlen 成員指的是下一個成員 ai_addr 整體的資料長度，所以 IPv4 和 IPv6 的 ai_addrlen 是不會一樣地！
+
+程式碼當中 ai_addr 成員的資料型態是 struct sockaddr *，它是一個指到 sockaddr 結構的指標；sockaddr 結構有兩個成員：unsigned short sa_family; 和 
+
+char sa_data[14]; sa_family很好理解，就跟前面的 ai_family 一樣，指的是 IPv4 (AF_INET)或是 IPv6 (AF_INET6)。但 sa_data[14] 是沒有意義的，在程式碼中看到有 
+
+sockaddr 的資料型態，必須要將之轉換為 sockaddr_in (IPv6 對應為 sockaddr_in6，以下不贅述)的資料型態，然後再將 sockaddr_in 結構的成員列印出來。可以用 sizeof(sockaddr) 和
+
+sizeof(sockaddr_in)去做比較，它們的大小是一樣地，都是１６Bytes。
+
+在程式碼中，inet_ntop(); 比 inet_ntoa(); 好用很多，inet_ntoa(); 只能針對 IPv4，IPv6 就不行；而 inet_ntop(); 則是兩者都能相容。
