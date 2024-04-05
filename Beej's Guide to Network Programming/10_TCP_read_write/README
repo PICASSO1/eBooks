@@ -1,0 +1,22 @@
+server.c:
+
+1. int socket(int domain, int type, int protocol);
+2. void herror(const char *s);
+3. int bind(int sockfd, struct sockaddr *my_addr, socklen_t addrlen);
+4. int listen(int sockfd, int backlog);
+5. int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+6. int accept(int sockfd, struct sockaddr *addr, socklen_t addrlen);
+7. ssize_t read(int fd, void *buf, size_t count);
+8. ssize_t write(int fd, void *buf, size_t count);
+
+client.c:
+1. int socket(int domain, int type, int protocol);
+2. void herror(const char *s);
+3. int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+4. ssize_t read(int fd, void *buf, size_t count);
+5. ssize_t write(int fd, void *buf, size_t count);
+
+a). 這是一支很簡單的 TCP/IP 範例程式，Server 端依序由 socket(), bind(), listen() 和 accept(); 函式建立連線；
+b). 而 Client 端則是只有 socket(); 和 connect(); 建立連線。
+c). Server 端的 accept(); 函式執行之後就會在那邊 Stand By Client 端連進來
+d). Server-Client 建立連線之後，用read(); / write(); 來讀寫。

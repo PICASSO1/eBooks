@@ -1,0 +1,5 @@
+
+a). 這是一支 TCP/IP 傳輸檔案的程式，由 Client 端送出request，Server 端再回傳一個檔案給 Client 端。
+b). 對於 Socket 而言，用 recv(); / send(); 函式來溝通；對於檔案而言，則是用 open(), read(), write(); 和 close(); 來做界面。
+c). 因為對於不同平臺的系統而言，send(); 傳送資料有可能因為緩衝區的問題而傳送不完全，所以另外寫一支 sendall(); 函式來確保資料都完全送出。
+d). 確認檔案是否正確，可用 "md5sum" 指令來查看 client.file 和 server.file 的檔案大小是否相同。

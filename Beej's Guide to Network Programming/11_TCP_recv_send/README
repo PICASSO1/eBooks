@@ -1,0 +1,29 @@
+server.c:
+
+1. int socket(int domain, int type, int protocol);
+2. void herror(const char *s);
+3. int bind(int sockfd, struct sockaddr *my_addr, socklen_t addrlen);
+4. int listen(int sockfd, int backlog);
+5. int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+6. int accept(int sockfd, struct sockaddr *addr, socklen_t addrlen);
+7. int recv(int s, void *buf, int len, unsigned int flags);
+	a). int s: 指自己 Local 端的 Socket File Description;
+	b). void *buf: 用來接受由 Client 端所傳送過來的資料; 
+	c). int len: 可接收資料的最大長度;
+	d). unsigned int flags: 一般都是用預設值０; 但還有其它用法: MSG_OOB | MSG_PEEK | MEG_WAITALL | MSG_NOSIGNAL
+8. int send(int s, const void *msg, int len, unsigned int flags);
+	a). int s: 指自己 Local 端的 Socket File Description;
+	b). const void *buf: 指要傳送的資料內容;
+	c). int len: 要傳送資料的最大長度;
+	d). unsigned int flags: 一般都是用預設值０; 但還有其它用法: MSG_OOB | MSG_PEEK | MEG_WAITALL | MSG_NOSIGNAL
+9. recv(); 和 send(); 函式的回傳值均為接收或傳送的字元數 (byte)。
+
+client.c:
+1. int socket(int domain, int type, int protocol);
+2. void herror(const char *s);
+3. int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);
+
+a). 這是一支很簡單的 TCP/IP 範例程式，Server 端依序由socket(), bind(), listen() 和 accept() 函式建立連線；
+b). 而 Client 端則是只有 socket(); 和 connect(); 建立連線。
+c). Server 端的 accept(); 函式執行之後就會在那邊 Stand By Client 端連進來
+d). Server-Client 建立連線之後，用 recv(); / send(); 來讀寫。

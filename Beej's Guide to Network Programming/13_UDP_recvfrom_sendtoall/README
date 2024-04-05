@@ -1,0 +1,33 @@
+server.c:
+
+1. int socket(int domain, int type, int protocol);
+2. void herror(const char *s);
+3. int bind(int sockfd, struct sockaddr *my_addr, socklen_t addrlen);
+4. int recvfrom(int s, void *buf, int len, unsigned int flags, struct sockaddr *from, int fromlen);
+	a). int s: 指自己Local端的Socket FD;
+	b). void *buf: 用來接受由Client端所傳送過來的資料; 
+	c). int len: 可接收資料的最大長度;
+	d). unsigned int flags: 一般都是用預設值0; 但還有其它用法: MSG_OOB | MSG_PEEK | MEG_WAITALL | MSG_NOSIGNAL
+	e). struct sockaddr *from: 指定欲傳送的網路位址; 
+	f). int fromlen: 承5, 此一結構的大小
+
+5. int sendto(int s, const void *msg, int len, unsigned int flags, const struct sockaddr *to, int tolen);
+	a). int s: Local端已建立好的Socket FD; 
+	b). const void *msg: 指要傳送的資料內容;
+	c). int len: 承2, 要傳送內容的資料長度; 
+	e). unsigned int flags: 同recvfrom()的unsigned int flags; 
+	f). const struct sockaddr *to: 指定欲傳送的網路位址; 
+	g). int tolen: 承5, 此一結構的大小
+	h). 回傳值為成功送出的字元數；失敗則是-1. 
+
+client.c:
+1. int socket(int domain, int type, int protocol);
+2. void herror(const char *s);
+3. int recvfrom(int s, void *buf, int len, unsigned int flags, struct sockaddr *from, int fromlen);
+4. int sendto(int s, const void *msg, int len, unsigned int flags, const struct sockaddr *to, int tolen);
+
+
+a). 這是一支很簡單的UDP/IP範例程式，Server端只需要socket()和bind()函式建立連線；而Client端只用socket()即可。
+b). Server端的recvfrom()函式並不像TCP/IP的accept()函式，執行之後會在那邊Stand By Client端連進來，所以必須用一個while loop讓它一直跑
+	，如果一直沒收到資料 (即回傳值為-1)就讓它continue; 同理，sendto()函式也一樣。
+c). UDP的程序必須用recvfrom() / sendto()函式來做傳送及接收的動作。

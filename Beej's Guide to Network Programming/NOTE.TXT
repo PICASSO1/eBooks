@@ -1,0 +1,65 @@
+
+Linux Socket Programming 初學筆記
+
+1. 用 socket(); 函式來建立一個 Socket File Descriptor "套接"檔案描述子；套接是大陸對 Socket 的說詞。
+
+2. socket(); 函式的第２個參數可以決定 SOCK_STREAM (TCP/IP)或是 SOCK_DGRAM (UDP/IP)。
+
+3. 一般而言，我們指的 Socket Programming 是指OSI Layer 4 Tramission (傳輸層)以上的資訊；若是要取的 Layer 3 Internet Protocol (網路層)的資訊，如ICMP 
+   (Internet Control Message Protocol)、IGMP (Internet Group Management Protocol)或是 Layer 2 Data Link的資訊，如 MAC Address，
+   socket(); 函式的第２個參數必須設定為 SOCK_RAW；但這一部份需要做更深入的研究。
+
+4. bind(); 函式，故名思義，把用 socket(); 所產生的 Socket FD 和 IP Address / Port # 的資訊做結合。
+
+5. listen(); 函式會產生一個佇列 (Queue)，等待 Client 來連線；listen(); 函式第２個參數 (backlog)就是指可以允許多少使用者連線。
+
+6. 在 TCP/IP 的 Server 端執行了accept(); 函式之後，就會產生一個 Blocking (阻塞)，因為函式就會一直在那邊 Stand By 等待 Client 來連線。
+
+7. 一個簡單的 TCP/IP Server 端建立方式：socket(), bind(), listen()和accept()，建立之後會產生一個 Client 端的 Socket FD，可以用低階 I/O read(); / 
+   write();函式做讀寫；或是用 recv(); / send()；但是後者比前者擁有更多的控制權。
+
+8. 至於 TCP/IP 的 Client 端，先用 socket(); 函式建立 Socket FD 之後，再用 connect(); 函式和 Server 端建立連線；UDP/IP 則是連 connect(); 都不需要。
+
+9. UDP/IP 的 Server 端程序，只需要 socket(); 和bind()，之後必須用 recvfrom(); 和 sendto(); 來接收和讀取資料。
+
+10. 還有一個比較複雜的 recvmsg(); 和 sendmsg(); 函式，這個有空再研究。
+
+相關範例：
+01_getnameinfo
+02_getaddrinfo_gai_strerror_freeaddrinfo
+03_getprotobyname_getprotobynumber_getprotoent_endprotoent
+04_gethostbyaddr_gethostbyname
+05_getservbyname_getservbyport_getservent_endservent
+06_gethostname_getpeername
+07_htonl_htons_ntohl_ntohs
+08_inet_addr_inet_aton_inet_ntoa_inet_pton_inet_ntop
+09_getifaddrs_freeifaddrs
+
+講了這麼多，當然也寫了一些範例。範例都很簡單，先執行 Server 端程序之後，再執行 Client 端。Client 會送一個 "Hello!! "字串給 Server 端，Server 收到之後，再串接上 "World!! " 字串回
+傳給 Client。使用本機的 LoopBack IPv4 Address: 127.0.0.1:4096。
+
+1. 這兩個範例是建立 TCP/IP 之後，分別使用read(); / write(); 和 recv(); / send(); 函式來運作。
+10_TCP_read_write
+11_TCP_recv_send
+
+2. 這一個範例則是使用 UDP/IP，但必須使用 recvfrom(); / sendto(); 函式。
+12_UDP_recvfrom_sendto
+
+3. 這一範例則是將原本的 sento(); 函式改寫成 sentoall(); (writeall(); 和 sendall(); 函式同理，不贅述)。因為我們要考量每一個作業系統的緩衝區都不盡相同，送出去的會不完全，為了要確保所有的資
+   料都能夠送出去，所以必須另外再寫一個*all()的函式。
+13_UDP_recvfrom_sendtoall
+
+4. 這兩個範例則是呈現如何使用 TCP/IP 來傳送和接收檔案，不會太難，不贅述。
+15_TCP_client_writeall_file
+16_TCP_server_sendall_file
+
+5. Mar 5th, 2022 補充：
+select(); 函式的用法：主要目的是為了要"同步I/O多工機制"。函式原型：
+
+int select(int numberfds, fd_set *readfds, fd_set *writefds, fd_set *execeptfds, struct timeval *timeout); 
+
+fd_set *readfds、*writefds、*execeptfds是指你要用 select(); 函式監控哪一組 File Description Set (FDS, 檔案描述子集合)；"set"在這兒是翻譯做集合。
+
+"fd_set" 結構的運作，還需要搭配 FD_SET()、FD_CLR()、FD_ISSET()、FD_ZERO(); 等巨集的設定。
+
+"struct timeval *timeout"的設定就是指"假如過了多少時間，fd_set 集合是否有被改變"；要判斷 fd_set 集合是否有被改變則是要使用 FD_ISSET() 巨集來判斷。實際上的應用還是要看懂書上的範例。
