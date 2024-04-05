@@ -1,0 +1,49 @@
+
+Linux C, getprotobyname(), getprotobynumber, getprotoent(), endprotoent()
+
+#include <netdb.h>
+
+struct protoent {
+    char *p_name;                 /* Official protocol name. */
+    char **p_aliases;             /* Alias list. */
+    int p_proto;                  /* Protocol number. */
+};
+
+struct protoent *getprotobyname(const char *name);
+struct protoent *getprotobynumber(int proto);
+struct protoent *getprotoent(void);
+void endprotoent(void);
+
+這４個函式的相關檔案為 /etc/protocols ，這４個函式的運作都和這個檔案有關。回傳的資料是儲存在１個名為 protoent (Protocol Entry)的結構。
+
+1. getprotobyname(); 藉由協定名稱來取得 /etc/protocols 的相關資料；只有１個參數，就是協定名稱，例如："l2tp"、"stp" 等等。
+
+2. getprotobynumber(); 藉由埠號 (Port #)來取得 /etc/protocols 的相關資料；也只有１個參數，就是埠號而已....
+
+3. getprotoent(); (Get Protocol Entry)，取得 /etc/protocols 的資料。
+
+4. endprotoent(); (End Protocol Entry)，和 getprotoent(); 是一對的；用 getprotoent(); 讀取 /etc/protocols 的資料之後，要用 endprotoent(); 函式來關閉。
+
+範例：Makefile & main.c
+
+執行結果：
+
+[root@localhost ~]# 
+[root@localhost ~]# ./main | less
+getprotobyname("l2tp"): 
+Protocol Name  : l2tp 
+Alias List     : L2TP 
+Protocol Number: 115 
+
+getprotobynumber(89): 
+Protocol Name  : ospf 
+Alias List     : OSPFIGP 
+Protocol Number: 89 
+
+getprotoent(): 
+ip               0    IP               
+hopopt           0    HOPOPT           
+icmp             1    ICMP             
+igmp             2    IGMP             
+ggp              3    GGP              
+ipencap          4    IP-ENCAP
