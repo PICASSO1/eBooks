@@ -72,16 +72,16 @@
 #define SIOCSIFNAME               0x8923		      /* set interface name. */
 #define SIOCSIFHWADDR             0x8924		      /* set hardware address. */
 #define SIOCGIFENCAP              0x8925		      /* get encapsulations. */
-#define SIOCSIFENCAP              0x8926          /* set encapsulations. */		
+#define SIOCSIFENCAP              0x8926		      /* set encapsulations. */		
 #define SIOCGIFHWADDR             0x8927		      /* get hardware address. */
 #define SIOCGIFSLAVE              0x8929		      /* get Driver slaving support. */
 #define SIOCSIFSLAVE              0x8930		      /* set Driver slaving support. */
 #define SIOCADDMULTI              0x8931		      /* add Multicast address lists. */
 #define SIOCDELMULTI              0x8932		      /* delete Multicast address lists. */
 #define SIOCGIFINDEX              0x8933		      /* name -> if_index mapping. */
-#define SIOGIFINDEX               SIOCGIFINDEX    /* misprint compatibility :-) */
+#define SIOGIFINDEX               SIOCGIFINDEX         /* misprint compatibility :-) */
 #define SIOCSIFPFLAGS             0x8934		      /* set extended flags set. */
-#define SIOCGIFPFLAGS             0x8935          /* get extended flags set. */
+#define SIOCGIFPFLAGS             0x8935               /* get extended flags set. */
 #define SIOCDIFADDR               0x8936		      /* delete PA address. */
 #define SIOCSIFHWBROADCAST        0x8937		      /* set hardware broadcast addr. */
 #define SIOCGIFCOUNT              0x8938		      /* get number of devices. */
@@ -96,7 +96,7 @@
 #define SIOCGMIIREG               0x8948		      /* Read MII PHY register. */
 #define SIOCSMIIREG               0x8949		      /* Write MII PHY register. */
 #define SIOCWANDEV                0x894A		      /* get/set netdev parameters. */
-#define SIOCOUTQNSD               0x894B          /* output queue size (not sent only) */
+#define SIOCOUTQNSD               0x894B               /* output queue size (not sent only) */
 #define SIOCGSKNS                 0x894C		      /* get socket network namespace */
 /* ARP cache control calls. */
 /* 0x8950 - 0x8952  * obsolete calls, don't re-use */
@@ -108,8 +108,8 @@
 #define SIOCGRARP                 0x8961          /* get RARP table entry */
 #define SIOCSRARP                 0x8962          /* set RARP table entry */
 /* Driver configuration calls */
-#define SIOCGIFMAP                0x8970          /* Get device parameters	*/
-#define SIOCSIFMAP                0x8971          /* Set device parameters	*/
+#define SIOCGIFMAP                0x8970          /* Get device parameters */
+#define SIOCSIFMAP                0x8971          /* Set device parameters */
 /* DLCI configuration calls */
 #define SIOCADDDLCI               0x8980          /* Create new DLCI device */
 #define SIOCDELDLCI               0x8981          /* Delete DLCI device */

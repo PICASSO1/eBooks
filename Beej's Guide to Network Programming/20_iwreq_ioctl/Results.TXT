@@ -1,0 +1,367 @@
+root@localhost:~#
+root@localhost:~# ifconfig
+ath1      Link encap:Ethernet  HWaddr 00:03:7F:BA:CB:BD
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:142499 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:729125 errors:183 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:27253952 (25.9 MiB)  TX bytes:671076544 (639.9 MiB)
+
+br-lan    Link encap:Ethernet  HWaddr 00:03:7F:BA:CB:AD
+          inet addr:192.168.199.138  Bcast:192.168.199.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:141777 errors:0 dropped:94158 overruns:0 frame:0
+          TX packets:958 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:12365225 (11.7 MiB)  TX bytes:54625 (53.3 KiB)
+
+eth0      Link encap:Ethernet  HWaddr 00:03:7F:BA:CB:AD
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:508231 errors:0 dropped:39 overruns:0 frame:0
+          TX packets:143596 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:352730976 (336.3 MiB)  TX bytes:28038769 (26.7 MiB)
+          Base address:0x7000
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:21329 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:21329 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:675592 (659.7 KiB)  TX bytes:675592 (659.7 KiB)
+
+wifi1     Link encap:UNSPEC  HWaddr 00-03-7F-BA-CB-BD-00-00-00-00-00-00-00-00-00-00
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:142541 errors:1405 dropped:0 overruns:0 frame:0
+          TX packets:419615 errors:183 dropped:183 overruns:0 carrier:0
+          collisions:0 txqueuelen:2699
+          RX bytes:27261596 (25.9 MiB)  TX bytes:334398240 (318.9 MiB)
+
+root@localhost:~#
+root@localhost:~# iwconfig
+lo        no wireless extensions.
+
+soc0      no wireless extensions.
+
+bond0     no wireless extensions.
+
+miireg    no wireless extensions.
+
+eth1      no wireless extensions.
+
+ath1      IEEE 802.11axa  ESSID:"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+          Mode:Master  Frequency:5.18 GHz  Access Point: 00:03:7F:BA:CB:BD
+          Bit Rate:573.5 kb/s   Tx-Power:24 dBm
+          RTS thr:off   Fragment thr:off
+          Encryption key:2DAA-C10F-FC13-88CC-B728-29C4-4824-6034   Security mode:restricted
+          Power Management:off
+          Link Quality=94/94  Signal level=0 dBm  Noise level=-96 dBm
+          Rx invalid nwid:37598  Rx invalid crypt:0  Rx invalid frag:0
+          Tx excessive retries:0  Invalid misc:0   Missed beacon:0
+
+wifi1     no wireless extensions.
+
+br-lan    no wireless extensions.
+
+eth0      no wireless extensions.
+
+wifi0     no wireless extensions.
+
+root@localhost:~#
+root@localhost:~# ./main
+lo: No Wireless Extensions.
+
+miireg: No Wireless Extensions.
+
+eth0: No Wireless Extensions.
+
+eth1: No Wireless Extensions.
+
+bond0: No Wireless Extensions.
+
+wifi1: No Wireless Extensions.
+
+wifi0: No Wireless Extensions.
+
+soc0: No Wireless Extensions.
+
+br-lan: No Wireless Extensions.
+
+ath1:
+
+SIOCGIWNAME: IEEE 802.11axa
+SIOCGIWESSID: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+ - iwr.u.essid.flags = 1
+SIOCGIWNICKN: This device driver DOESN'T support this feature.
+SIOCGIWMODE: Master
+ - iwr.u.mode = 3
+SIOCGIWAP: 00:03:7F:BA:CB:BD
+ - iwr.u.ap_addr.sa_family = 1
+SIOCGIWNWID: This device driver DOESN'T support this feature.
+SIOCGIWRTS: Disable / OFF
+ - iwr.u.rts.value: 2347
+ - iwr.u.rts.fixed: 1
+ - iwr.u.rts.disabled: 1
+ - iwr.u.rts.flags: 48587
+SIOCGIWFRAG: Disable / OFF
+ - iwr.u.frag.value: 2346
+ - iwr.u.frag.fixed: 1
+ - iwr.u.frag.disabled: 1
+ - iwr.u.frag.flags: 48587
+SIOCGIWRETRY: This device driver DOESN'T support this feature.
+SIOCGIWRANGE:
+ - iwrange.throughput = 5500000
+ - iwrange.min_nwid = 0
+ - iwrange.max_nwid = 0
+ - iwrange.old_num_channels = 0
+ - iwrange.old_num_frequency = 0
+ - iwrange.scan_capa = 0
+ - iwrange.event_capa[6] = 67108944 1024 0 0 4 0
+ - iwrange.sensitivity = 3
+ - iwrange.max_qual.qual = 94
+ - iwrange.max_qual.level = 162
+ - iwrange.max_qual.noise = 161
+ - iwrange.max_qual.updated = 8
+ - iwrange.avg_qual.qual = 0
+ - iwrange.avg_qual.level = 0
+ - iwrange.avg_qual.noise = 0
+ - iwrange.avg_qual.updated = 0
+ - iwrange.num_bitrates = 8
+ - iwrange.bitrate[IW_MAX_BITRATES] = 6000000 9000000 12000000 18000000 24000000 36000000 48000000 54000000 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ - iwrange.min_rts = 0
+ - iwrange.max_rts = 2347
+ - iwrange.min_frag = 256
+ - iwrange.max_frag = 2346
+ - iwrange.min_pmp = 0
+ - iwrange.max_pmp = 0
+ - iwrange.min_pmt = 0
+ - iwrange.max_pmt = 0
+ - iwrange.pmp_flags = 0
+ - iwrange.pmt_flags = 0
+ - iwrange.pm_capa = 0
+ - iwrange.encoding_size[IW_MAX_ENCODING_SIZES] = 5 13 16 0 0 0 0 0
+ - iwrange.num_encoding_sizes = 3
+ - iwrange.max_encoding_tokens = 4
+ - iwrange.encoding_login_index = 0
+ - iwrange.txpower_capa = 0
+ - iwrange.num_txpower = 8
+ - iwrange.txpower[IW_MAX_TXPOWER] = 0 6 9 12 15 18 21 24
+ - iwrange.we_version_compiled = 22
+ - iwrange.we_version_source = 13
+ - iwrange.retry_capa = 4096
+ - iwrange.retry_flags = 4096
+ - iwrange.r_time_flags = 0
+ - iwrange.min_retry = 0
+ - iwrange.max_retry = 255
+ - iwrange.min_r_time = 0
+ - iwrange.max_r_time = 0
+ - iwrange.num_channels = 252
+ - iwrange.num_frequency = 25
+ - iwrange.freq[IW_MAX_FREQUENCIES]:
+ -- iwrange.freq[0].m = 518000000
+ -- iwrange.freq[0].e = 1
+ -- iwrange.freq[0].i = 36
+ -- iwrange.freq[0].flags = 0
+
+ -- iwrange.freq[1].m = 520000000
+ -- iwrange.freq[1].e = 1
+ -- iwrange.freq[1].i = 40
+ -- iwrange.freq[1].flags = 0
+
+ -- iwrange.freq[2].m = 522000000
+ -- iwrange.freq[2].e = 1
+ -- iwrange.freq[2].i = 44
+ -- iwrange.freq[2].flags = 0
+
+ -- iwrange.freq[3].m = 524000000
+ -- iwrange.freq[3].e = 1
+ -- iwrange.freq[3].i = 48
+ -- iwrange.freq[3].flags = 0
+
+ -- iwrange.freq[4].m = 526000000
+ -- iwrange.freq[4].e = 1
+ -- iwrange.freq[4].i = 52
+ -- iwrange.freq[4].flags = 0
+
+ -- iwrange.freq[5].m = 528000000
+ -- iwrange.freq[5].e = 1
+ -- iwrange.freq[5].i = 56
+ -- iwrange.freq[5].flags = 0
+
+ -- iwrange.freq[6].m = 530000000
+ -- iwrange.freq[6].e = 1
+ -- iwrange.freq[6].i = 60
+ -- iwrange.freq[6].flags = 0
+
+ -- iwrange.freq[7].m = 532000000
+ -- iwrange.freq[7].e = 1
+ -- iwrange.freq[7].i = 64
+ -- iwrange.freq[7].flags = 0
+
+ -- iwrange.freq[8].m = 550000000
+ -- iwrange.freq[8].e = 1
+ -- iwrange.freq[8].i = 100
+ -- iwrange.freq[8].flags = 0
+
+ -- iwrange.freq[9].m = 552000000
+ -- iwrange.freq[9].e = 1
+ -- iwrange.freq[9].i = 104
+ -- iwrange.freq[9].flags = 0
+
+ -- iwrange.freq[10].m = 554000000
+ -- iwrange.freq[10].e = 1
+ -- iwrange.freq[10].i = 108
+ -- iwrange.freq[10].flags = 0
+
+ -- iwrange.freq[11].m = 556000000
+ -- iwrange.freq[11].e = 1
+ -- iwrange.freq[11].i = 112
+ -- iwrange.freq[11].flags = 0
+
+ -- iwrange.freq[12].m = 558000000
+ -- iwrange.freq[12].e = 1
+ -- iwrange.freq[12].i = 116
+ -- iwrange.freq[12].flags = 0
+
+ -- iwrange.freq[13].m = 560000000
+ -- iwrange.freq[13].e = 1
+ -- iwrange.freq[13].i = 120
+ -- iwrange.freq[13].flags = 0
+
+ -- iwrange.freq[14].m = 562000000
+ -- iwrange.freq[14].e = 1
+ -- iwrange.freq[14].i = 124
+ -- iwrange.freq[14].flags = 0
+
+ -- iwrange.freq[15].m = 564000000
+ -- iwrange.freq[15].e = 1
+ -- iwrange.freq[15].i = 128
+ -- iwrange.freq[15].flags = 0
+
+ -- iwrange.freq[16].m = 566000000
+ -- iwrange.freq[16].e = 1
+ -- iwrange.freq[16].i = 132
+ -- iwrange.freq[16].flags = 0
+
+ -- iwrange.freq[17].m = 568000000
+ -- iwrange.freq[17].e = 1
+ -- iwrange.freq[17].i = 136
+ -- iwrange.freq[17].flags = 0
+
+ -- iwrange.freq[18].m = 570000000
+ -- iwrange.freq[18].e = 1
+ -- iwrange.freq[18].i = 140
+ -- iwrange.freq[18].flags = 0
+
+ -- iwrange.freq[19].m = 572000000
+ -- iwrange.freq[19].e = 1
+ -- iwrange.freq[19].i = 144
+ -- iwrange.freq[19].flags = 0
+
+ -- iwrange.freq[20].m = 574500000
+ -- iwrange.freq[20].e = 1
+ -- iwrange.freq[20].i = 149
+ -- iwrange.freq[20].flags = 0
+
+ -- iwrange.freq[21].m = 576500000
+ -- iwrange.freq[21].e = 1
+ -- iwrange.freq[21].i = 153
+ -- iwrange.freq[21].flags = 0
+
+ -- iwrange.freq[22].m = 578500000
+ -- iwrange.freq[22].e = 1
+ -- iwrange.freq[22].i = 157
+ -- iwrange.freq[22].flags = 0
+
+ -- iwrange.freq[23].m = 580500000
+ -- iwrange.freq[23].e = 1
+ -- iwrange.freq[23].i = 161
+ -- iwrange.freq[23].flags = 0
+
+ -- iwrange.freq[24].m = 582500000
+ -- iwrange.freq[24].e = 1
+ -- iwrange.freq[24].i = 165
+ -- iwrange.freq[24].flags = 0
+
+ -- iwrange.freq[25].m = 0
+ -- iwrange.freq[25].e = 0
+ -- iwrange.freq[25].i = 0
+ -- iwrange.freq[25].flags = 0
+
+ -- iwrange.freq[26].m = 0
+ -- iwrange.freq[26].e = 0
+ -- iwrange.freq[26].i = 0
+ -- iwrange.freq[26].flags = 0
+
+ -- iwrange.freq[27].m = 0
+ -- iwrange.freq[27].e = 0
+ -- iwrange.freq[27].i = 0
+ -- iwrange.freq[27].flags = 0
+
+ -- iwrange.freq[28].m = 0
+ -- iwrange.freq[28].e = 0
+ -- iwrange.freq[28].i = 0
+ -- iwrange.freq[28].flags = 0
+
+ -- iwrange.freq[29].m = 0
+ -- iwrange.freq[29].e = 0
+ -- iwrange.freq[29].i = 0
+ -- iwrange.freq[29].flags = 0
+
+ -- iwrange.freq[30].m = 0
+ -- iwrange.freq[30].e = 0
+ -- iwrange.freq[30].i = 0
+ -- iwrange.freq[30].flags = 0
+
+ -- iwrange.freq[31].m = 0
+ -- iwrange.freq[31].e = 0
+ -- iwrange.freq[31].i = 0
+ -- iwrange.freq[31].flags = 0
+
+ - iwrange.enc_capa = 15
+SIOCGIWFREQ:
+ - iwr.u.freq.m: 518000000
+ - iwr.u.freq.e: 1
+ - iwr.u.freq.i: 0
+ - iwr.u.freq.flags: 0
+SIOCGIWENCODE:
+ - iwr.u.encoding.pointer: E73B4960E73B4961E73B4962E73B4963E73B4964E73B4965E73B4966E73B4967E73B4968E73B4969E73B496AE73B496BE73B496CE73B496DE73B496EE73B496F
+ - iwr.u.encoding.flags: 0x4000
+SIOCGIWRATE:
+ - iwr.u.bitrate.value: 573500
+ - iwr.u.bitrate.fixed: 0
+ - iwr.u.bitrate.disabled: 0
+ - iwr.u.bitrate.flags: 0
+SIOCGIWPOWER: Disable / OFF
+ - iwr.u.power.value: 573500
+ - iwr.u.power.fixed: 0
+ - iwr.u.power.disabled: 1
+ - iwr.u.power.flags: 0
+SIOCGIWTXPOW: 24 dBm
+ - iwr.u.txpower.value: 24
+ - iwr.u.txpower.fixed: 0
+ - iwr.u.txpower.disabled: 0
+ - iwr.u.txpower.flags: 0
+SIOCGIWSENS: This device driver DOESN'T support this feature.
+SIOCGIWSTATS: Link Quality=94/94; Rx invalid nwid: 37598; Rx invalid crypt: 0; Rx invalid frag: 0; Tx excessive retries: 0; Invalid misc: 0; Missed beacon: 0
+ - iwstatistics.status: 1
+ - iwstatistics.qual.qual: 94
+ - iwstatistics.qual.level: 0
+ - iwstatistics.qual.noise: 160
+ - iwstatistics.qual.updated: 15
+ - iwstatistics.discard.nwid: 37598
+ - iwstatistics.discard.code: 0
+ - iwstatistics.discard.fragment: 0
+ - iwstatistics.discard.retries: 0
+ - iwstatistics.discard.misc: 0
+ - iwstatistics.miss.beacon: 0
+SIOCGIWGENIE:
+ - iwr.u.data.flags: 0x4000
+SIOCGIWENCODEEXT: This device driver DOESN'T support this feature.
+
+lo: No Wireless Extensions.
+
+br-lan: No Wireless Extensions.
+
+root@localhost:~#
