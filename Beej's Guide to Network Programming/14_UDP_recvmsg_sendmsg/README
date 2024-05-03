@@ -1,0 +1,35 @@
+1. int recvmsg(int sockfd, struct *msghdr, int flags);
+2. int sendmsg(int sockfd, struct *msghdr, int flags);
+
+a). 這是一支很複雜的 UDP/IP 範例程式；相較於 TCP - recv / send & UDP - recvfrom / sendto (sendtoall) 這些都是針對 TCP / UDP 專用的函式；read / write 則是最簡單的低階 I/O 可操作的項目不多
+b). 而 recvmsg / sendmsg 較為複雜，均可用於 TCP & UDP ；第二個參數非常複雜：
+
+    struct msghdr {
+        void *msg_name;          /* protocol Address, like struct sockaddr_in data type */
+        socklen_t msg_namelen;    /* size of msg_name */
+        struct iovec *msg_iov;   /* scatter / Gatter array */
+        int msg_iovlen;          /* size of msg_iov */
+        void *msg_control;       /* ancillary data (struct cmsghdr) */
+        int msg_controllen;      /* size of msg_control */
+        int msg_flags;           /* flags returned by recvmsg */
+    };
+
+    struct iovec {
+        void *iov_base;          /* starting address of buffer */
+        size_t iov_len;          /* szie of buffer */
+    };
+
+    而 void *msg_control 則是指 struct cmsghdr (control message header)：
+
+    struct cmsghdr {
+        socklen_t cmsg_len;      /* length in bytes, including this structure */
+        int cmsg_level;          /* originating protocol */
+        int cmsg_type;           /* protocol - specific type */
+        /* followed by unsigned char cmsg_data[]; */
+	};
+
+    這兩個函式的用法非常地複雜，參考網址如下；自己只是寫出兩個最簡單的範例：Client 端送出 "Hello!! " 讓 Server 端來接收；原本是想要 Server 端收到之後，也送個 "World!! " 回去，
+    但一直寫不出來，因此作罷。但是單獨執行的時候，Server & Client 互換是沒問題的！所以先用 if 0 | 1 - endif 來做區分。
+
+    https://www.iteye.com/blog/memorymyann-648513
+    https://blog.csdn.net/u014209688/article/details/71311973

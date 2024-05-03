@@ -10,12 +10,12 @@
  * Date: 2024 / 04 / 30
  *
  * Description: 
- *  - ³o­ÓÂ²³æªº½d¨Ò¡A§e²{¤FµL½uºô¸ô struct iwreq - ioctl(); ªº¤@¨Ç°ò¥»¥Îªk¡F¬ÛÃöªº¸ê®Æµ²ºc©w¸q¦b /usr/include/linux/wireless.h
- *  - ¦ı¬O¡Awireless ªº SIOCS/GXXXX ¨Ã¤£¹³ Ethernet ¤@¼Ë¡A³\¦h¥\¯à³£¥²¶·­n driver ¤]­n¤ä´©¡A­n¤£µMÁÙ¬OµLªk¦s¨ú¡C
- *  - ³o¤@­Ó½d¨Ò°ò¥»¤W³£¥i¥H±q driver Åª¥X³Ì­ì©lªº¸ê®Æ (native data)¡F¦ı¬OÁÙ¥²¶·¼g¤@¤j°ïªº¨ç¦¡¤~¯à°÷¨ãÅé§e²{¡A¦ı¦Û¤v¤£·Qªá¤Ó¦h®É¶¡¦b³o¨à¡C
- *  - ¨Ò¦p¡GFrequency, Bit Rate, Tx Power, Sensitivityµ¥µ¥¡A³o¤@³¡¥÷´N¤£·Qªá¤Ó¦h®É¶¡¦b³o¸Ì¡C
- *  - struct iw_pointer ªº³Ì«á¤@­Ó¦¨­û _u16 flags ¦b wireless.h ¤]¦³³\¦h¬Û¹ïÀ³ªº´y­z¡A³o¸Ì¤]¨S¦³ªá®É¶¡¥h°µ¤ÀªR¡C 
- *  - µ²½×¡G¬İ§O¤H¼g¦nªº³Ì§Ö¡I¤£­n¦Û¤v·d¡C
+ *  - é€™å€‹ç°¡å–®çš„ç¯„ä¾‹ï¼Œå‘ˆç¾äº†ç„¡ç·šç¶²è·¯ struct iwreq - ioctl(); çš„ä¸€äº›åŸºæœ¬ç”¨æ³•ï¼›ç›¸é—œçš„è³‡æ–™çµæ§‹å®šç¾©åœ¨ /usr/include/linux/wireless.h
+ *  - ä½†æ˜¯ï¼Œwireless çš„ SIOCS/GXXXX ä¸¦ä¸åƒ Ethernet ä¸€æ¨£ï¼Œè¨±å¤šåŠŸèƒ½éƒ½å¿…é ˆè¦ driver ä¹Ÿè¦æ”¯æ´ï¼Œè¦ä¸ç„¶é‚„æ˜¯ç„¡æ³•å­˜å–ã€‚
+ *  - é€™ä¸€å€‹ç¯„ä¾‹åŸºæœ¬ä¸Šéƒ½å¯ä»¥å¾ driver è®€å‡ºæœ€åŸå§‹çš„è³‡æ–™ (native data)ï¼›ä½†æ˜¯é‚„å¿…é ˆå¯«ä¸€å¤§å †çš„å‡½å¼æ‰èƒ½å¤ å…·é«”å‘ˆç¾ï¼Œä½†è‡ªå·±ä¸æƒ³èŠ±å¤ªå¤šæ™‚é–“åœ¨é€™å…’ã€‚
+ *  - ä¾‹å¦‚ï¼šFrequency, Bit Rate, Tx Power, Sensitivityç­‰ç­‰ï¼Œé€™ä¸€éƒ¨ä»½å°±ä¸æƒ³èŠ±å¤ªå¤šæ™‚é–“åœ¨é€™è£¡ã€‚
+ *  - struct iw_pointer çš„æœ€å¾Œä¸€å€‹æˆå“¡ _u16 flags åœ¨ wireless.h ä¹Ÿæœ‰è¨±å¤šç›¸å°æ‡‰çš„æè¿°ï¼Œé€™è£¡ä¹Ÿæ²’æœ‰èŠ±æ™‚é–“å»åšåˆ†æã€‚ 
+ *  - çµè«–ï¼šçœ‹åˆ¥äººå¯«å¥½çš„æœ€å¿«ï¼ä¸è¦è‡ªå·±æã€‚
  *  - SoC: Qualcomm IPQ8072A; 5GHz Radio: QCN5054
  *
 (*)?*/
