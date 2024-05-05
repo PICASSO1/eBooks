@@ -1,0 +1,5 @@
+
+a). 這是一支 Named Socket 簡單的範例程式；它的功能就類似 Named Pipe (具名管線)。雖然現在已經有 IPCs ，但有一些 Open Source 還是會使用這種方式。
+b). Server 端是使用 UDP 的方式來建立連線：socket(), bind(), recvfrom() 和 sendto(); 。
+c). Client 端就有點兒複雜了：也是使用 UDP 的方式來建立連線：socket(), bind(), 但卻使用了 TCP 的 connect(), recv(); 和 recv():。
+d). Server 端只會建立 server.sock 負責傳送和接收；但 Client 端用 client.sock 來接收，用 server.sock 來傳送。

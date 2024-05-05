@@ -1,0 +1,5 @@
+
+a). 這是一支 TCP Named Socket 的範例程式；相對於 UDP Named Socket 來說比較簡單，只需要建立一個 Named Socket 即可。
+b). Server side: socket(), bind(), listen(), accept(), 然後分別用 read(); 和 write(); 來做接收和傳送；
+c). Client side: socket(), connect(), write(), read(); 。
+d). 除了用 read(); / write(); 之外，也可以用 TCP 專屬的 recv(); / send(); 。
