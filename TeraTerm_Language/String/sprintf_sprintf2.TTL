@@ -1,0 +1,61 @@
+/**
+ * File Name: sprintf_sprintf2.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. sprintf: 用法相當類似於 C語言的 sprintf(); 請見範例：
+ *    所產生的字串，會自動地儲存在系統的變數 inputstr 當中；
+ *    而函式的回傳值則是儲存在 result 當中，意義如下：
+ *    result = 0, sprintf 執行成功；
+ *    result = 1, 無格式化字串；
+ *    result = 2, 格式無效；
+ *    result = 3, 參數無效。
+ *
+ * 2. sprintf2: sprintf 的強化版本，所產生的字串，可以儲存在「使用者自行定義的字串變數」當中；至於回傳值的部份則是多了：
+ *    result = 4, 字串變數無效。
+ *    
+(*)?*/
+
+strTemp = "\0"
+
+sprintf "Tera Term "#13"Version: %d.%d.%d %s" 5 4 0 "x86"
+messagebox inputstr "sprintf 1: "
+
+sprintf "Microsoft Windows %d (%s) Professional %s" 10 "x64" "22H2"
+messagebox inputstr "sprintf 2: "
+
+sprintf "%s = %04d; %s=0x%04X" "Dec" 10 "Hex" 33
+messagebox inputstr "sprintf 3: "
+
+sprintf "𝝿 = %.10f" "3.14159"
+messagebox inputstr "sprintf 4: "
+
+sprintf "𝝿 = %.4e" "3.14159"
+messagebox inputstr "sprintf 5: "
+
+sprintf "𝝿 = %.4g" "3.14159"
+messagebox inputstr "sprintf 6: "
+
+/*******************************sprintf2*******************************/
+
+sprintf2 strTemp "Tera Term "#13"Version: %d.%d.%d %s" 5 4 0 "x86"
+messagebox strTemp "sprintf2 1: "
+
+sprintf2 strTemp "Microsoft Windows %d (%s) Professional %s" 10 "x64" "22H2"
+messagebox strTemp "sprintf2 2: "
+
+sprintf2 strTemp "%s = %04d; %s=0x%04X" "Dec" 10 "Hex" 33
+messagebox strTemp "sprintf2 3: "
+
+sprintf2 strTemp "𝝿 = %.10f" "3.14159"
+messagebox strTemp "sprintf2 4: "
+
+sprintf2 strTemp "𝝿 = %.4e" "3.14159"
+messagebox strTemp "sprintf2 5: "
+
+sprintf2 strTemp "𝝿 = %.4g" "3.14159"
+messagebox strTemp "sprintf2 6: "
+
+exit

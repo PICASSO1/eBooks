@@ -1,0 +1,83 @@
+/**
+ * File Name: log_serise.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. 這是一個關於 TereTerm 紀錄 Log 功能的相關函式，極其複雜。
+ *
+ * 2. logopen 開啟 / 建立一個 Log 檔案，後面可以接一大堆的設定參數，如下：
+ *    logopen <file name> <binary flag> <append flag> <plain text flag> <timestamp flag> <hide dialog flag> <include screen buffer flag> <timestamp type>
+ *
+ * 3. logopen 的特性是：倘若我想要指定「時間戳記的類型 (Time Stamp Type)」為 UTP (1)，那前面那些為０的參數全部都要下：
+ *    EX: logopen 0 0 0 1 0 0 1
+ *
+(*)?*/
+
+; <file name>
+; 若 Log 檔案的名稱中，沒有 '\' 字元，則是會直接儲存在 TereTerm 執行目錄下的 log 資料夾；
+; 若有，則代表是 MS-Windows 的絕對路徑。
+
+; <binary flag>
+; 若 binary flag == 0 則接收到的換行符號將會轉換 (CR->CR / CRLF)且轉義序列將會移除 (預設)；
+; 若 binary flag != 0 則接收到的字元將不做任何修改直接寫入；且自動忽略以下的 <append flag> 和 <plain text flag> 參數。
+
+; <append flag>
+; 若 append flag == 0 且 Log 檔案存在，則 Log 檔會被覆寫 (預設)；
+; 若 append flag != 0 且 Log 檔案存在，則是將 Log 直接新增到檔案結尾。
+
+; <plain text flag>
+; 若 plain text flag != 0 則不會將 ASCII code 當中的「非可列印字元 (Non-Printable)」寫入 Log (預設０)。
+
+; <timestamp flag>
+; 若 timestamp flag != 0 則會在每一行 Log 的前面新增時間戳記 (Time Stamp) (預設０)；
+; 若要使用時間戳記，則前面的３組參數都要輸入，不得為空！
+
+; <hide dialog flag>
+; 若 hide dialog flag != 0 則不會顯示「Tere Term: 日誌」對話方塊 (預設０)。
+
+; <include screen buffer flag>
+; 若 include screen buffer flag != 0 則目前螢幕緩衝區中的所有資料會先寫入 Log (預設０)。
+
+; <timestamp type>
+; 若 timestamp type != 0 則可以指定以下的時間戳記類型：
+; 0: Local Time (預設)
+; 1: UTC
+; 2: Elapsed Time (Logging)
+; 3: Elapsed Time (Connection)
+
+LOG_FILE = "D:\TereTerm.LOG"
+
+; 若要啟用時間戳記，執行下列參數即可！
+logopen LOG_FILE 0 0 0 1
+
+IDX = -1
+PROMPT = "picasso@picasso-VB:~$"
+
+wait PROMPT
+
+for IDX 0 10
+	sendln "###### Hello!! World!! ######"
+	sendln ""
+	pause 1
+next
+
+; 因為執行了 logpause ，所以以下的訊息不會被記錄到 Log。
+logpause
+sendln "###### LogPause!! ######"
+sendln ""
+pause 1
+
+; 因為執行了 logpause ，可以用 logstart 來恢復！
+logstart
+sendln "###### Log Re-Start!! ######"
+sendln ""
+pause 1
+
+; logwrite 可以直接將內容寫進 Log。
+logwrite "This Log was written by TTL, not by TereTerm!! "
+
+logclose
+
+exit

@@ -1,0 +1,35 @@
+/**
+ * File Name: continue_break_mpause.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. continue 和 break 搭配 for-next 的用法；
+ * 2. mpause (Micro) 可以控制到毫秒 (0.001)，mpause 1000 == pause 1 ；但並不實用！
+ *
+(*)?*/
+
+IDX = 0
+
+for IDX 2 10
+	if IDX < 6 then
+		sendln "###### continue .... ######"
+		sendln ""
+		continue
+	endif
+
+	if IDX = 6 then
+		sendln "###### I got IDX = 6 ######"
+		sendln ""
+	endif
+
+	if IDX = 8 then
+		sendln "###### I got IDX = 8, break ######"
+		sendln ""
+		break
+	endif
+	mpause 1000
+next
+
+exit

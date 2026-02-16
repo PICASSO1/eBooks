@@ -1,0 +1,20 @@
+/**
+ * File Name: for_next.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. for-next 的用法；就跟 C 語言一樣，有次數的迴圈。
+ * 2. for-next 比 while-endwhile 和 until-enduntil 好用，變數不需要自行運算。
+ *
+(*)?*/
+
+IDX = 0
+
+for IDX 1 10
+	sendln "echo 'Hello!! World!!'"
+	pause 1
+next
+
+exit

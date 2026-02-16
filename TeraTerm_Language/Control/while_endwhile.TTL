@@ -1,0 +1,21 @@
+/**
+ * File Name: while_endwhile.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021426
+ * Date: 2026 / 02 / 14
+ * Description:
+ * 1. while-endwhile 的用法。
+ *
+(*)?*/
+
+IDX = 0
+
+while IDX < 10
+	sendln "echo 'Hello!! World!!'"
+	sendln ""
+	pause 1
+	IDX = IDX + 1
+endwhile
+
+exit

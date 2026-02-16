@@ -1,0 +1,57 @@
+/**
+ * File Name: strcompare_strconcat_strcopy_strinsert.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. strcompare: <string1> <string2>：字串比較。回傳值會儲存在系統的全域變數 result 當中：
+ *    result = 0, string1 等於 string2；
+ *    result = 1, string1 大於 string2；
+ *    result = -1, string1 小於 string2 (字串為何要比大小？)
+ *
+ * 2. strconcat: <string1> <string2>：把 string2 接在 string1 後面。
+ *
+ * 3. strcopy: <string> <pos> <len> <strvar>：拷貝字串
+ *    <string>: 要被 copy 的字串
+ *    <pos>: string 中要開始 copy 的位置，索引值是從１開始算
+ *    <len>: 要 copy 的長度
+ *    <strvar>: copy 完的字串，所要儲存在的字串變數
+ *
+ * 4. strinsert: <strvar> <index> <string>：插入字串
+ *    <strvar>: 要被 string 插入的字串
+ *    <index>: 從 strvar 的第幾個索引值插入，索引值是從１開始算
+ *    <string>: 要插到 strvar 的字串
+ *    
+(*)?*/
+
+strTemp1 = "AAAAAA"
+strTemp2 = "abcdef"
+
+/*******************************strcompare*******************************/
+
+strcompare strTemp1 strTemp2
+if result = 1 then
+	messagebox "The string1 is bigger than String2!! " "strcompare:"
+elseif result = (-1) then
+	messagebox "The string1 is smaller than String2!! " "strcompare:"
+else
+	messagebox "These two Strings were the same" "strcompare:"
+endif
+
+/*******************************strconcat********************************/
+
+strconcat strTemp2 "GHIJKL"
+messagebox strTemp2 "strconcat: "
+
+/********************************strcopy*********************************/
+
+strcopy strTemp2 3 7 strTemp1
+messagebox strTemp1 "strcopy: "
+
+/********************************strinsert*******************************/
+
+strinsert strTemp1 4 "XXYYZZ"
+messagebox strTemp1 "strinsert: "
+
+exit

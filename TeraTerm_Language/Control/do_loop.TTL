@@ -1,0 +1,33 @@
+/**
+ * File Name: do_loop.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. do-loop 的用法；感覺有點兒「多此一舉」。。。。。
+ * 2. 
+ *
+(*)?*/
+
+IDX = 0
+
+sendln "echo 'do - condition, loop: '"
+
+do while IDX < 10
+	sendln "echo 'Hello!! World!!'"
+	sendln ""
+	pause 1
+	IDX = IDX + 1
+loop
+
+sendln "echo 'do, loop - condition: '"
+
+do
+	sendln "echo 'World!! Hello!! '"
+	sendln ""
+	pause 1
+	IDX = IDX - 1
+loop while IDX > 0
+
+exit

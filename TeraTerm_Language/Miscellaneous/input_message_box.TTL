@@ -1,0 +1,20 @@
+/**
+ * File Name: input_message_box.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. inputbox <message> <title>
+ *    <message>: 所要呈現的訊息，訊息當中所使用的跳脫字元，用 ASCII 碼表示，且用雙引號括起來。
+ *    <title>: 視窗的標題列；但標題列無法換行。
+ *
+ * 2. messagebox 要比 statusbox-closesbox 好用，會有一個「OK」鍵讓使用者按下及等待。
+ *
+(*)?*/
+
+inputbox "Please input a String:" "This is a InputBox"
+
+messagebox inputstr "Your input result: "
+
+exit

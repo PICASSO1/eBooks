@@ -1,0 +1,31 @@
+/**
+ * File Name: if_then_elseif_else_endif.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. if-then-elseif-else-endif 的用法；
+ * 2. C語言 的空集合用 { }
+ * 3. Shell Script 的空集合用 ':' 
+ * 4. TTL 的空集合則是直接控一行即可，代表什麼事也不做。
+ *
+(*)?*/
+
+IDX = 2
+
+if IDX = 0 then
+	sendln "###### IDX = 0 ###### "
+elseif IDX = 1 then
+	sendln "###### IDX = 1 ###### "
+elseif IDX = 2 then
+	
+elseif IDX = 3 then
+	sendln "###### IDX = 3 ###### "
+else
+	sendln "###### IDX = ? ###### "
+endif
+
+pause 1
+
+exit

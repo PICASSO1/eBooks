@@ -1,0 +1,35 @@
+/**
+ * File Name: yesno_status_close_box.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. yesnobox <message> <title>
+ *    <message>: 所要呈現的訊息，訊息當中所使用的跳脫字元，用 ASCII 碼表示，且用雙引號括起來。下面的範例為：
+ *               You need to click "YES" or "NO"!! 
+ *               This is a New Line. 
+ *               #34 為 雙引號 (")；#13 為 換行 (CR)
+ *    <title>: 視窗的標題列；但標題列無法換行。
+ *
+ * 2. yesnobox 的回傳值，會儲存在 TTL 的全域變數 result：按「YES」會回傳１；按「NO」則是回傳０。
+ *
+ * 3. statusbox 狀態對話框....功能很鳥，使用者無法自行關閉。
+ *
+ * 4. statusbox 和 closesbox 需搭配一起使用。
+ *
+(*)?*/
+
+yesnobox "You need to click "#34"YES"#34" or "#34"NO"#34"!! "#13"This is a New Line. " "This is the Title!! "
+if result = 0 then
+	statusbox "You click NO!! " "Result:" 
+elseif result = 1 then
+	statusbox "You click YES!! " "Result:" 
+else
+
+endif
+pause 10
+
+closesbox
+
+exit

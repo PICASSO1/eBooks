@@ -1,0 +1,29 @@
+/**
+ * File Name: until_enduntil.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. until-enduntil 的用法。
+ * 2. until (直到)條件為"真"就不執行。所以，程式碼會執行 11 次 (0 ~ 10)；而註解的那一段則是一行都不會執行 (0 < 10)。
+ *
+(*)?*/
+
+IDX = 0
+
+until IDX > 10
+	sendln "echo 'Hello!! World!!'"
+	sendln ""
+	pause 1
+	IDX = IDX + 1
+enduntil
+
+; until IDX < 10
+; 	sendln "echo 'Hello!! World!!'"
+; 	sendln ""
+;	pause 1
+; 	IDX = IDX + 1
+; enduntil
+
+exit

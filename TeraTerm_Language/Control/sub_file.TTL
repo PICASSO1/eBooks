@@ -1,0 +1,24 @@
+/**
+ * File Name: sub_file.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. 這是一支被 "include.TTL" 所呼叫的檔案；
+ * 2. 這種被 include 的 TTL 最後不可以使用 exit 或 end，因為會直接離開 主檔案 (include.TTL)！
+ *
+(*)?*/
+
+sendln "###### Here is the sub_file.TTL file!! ######"
+sendln ""
+mpause 1000
+
+sendln MSG
+sendln ""
+mpause 1000
+
+MSG = "###### World!! Hello!! ######"
+
+; exit
+; end

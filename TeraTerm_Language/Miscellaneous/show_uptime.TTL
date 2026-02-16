@@ -1,0 +1,38 @@
+/**
+ * File Name: show_uptime.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. show: <show flag>：TTL 在執行的時候，會跳出一個「巨集對話視窗」，而 show 指令只能夠針對這個視窗做控制。
+ *    <show flag>: > ０ 顯示巨集對話視窗並置於畫面最上方；= ０ 最小化巨集對話視窗；< ０ 隱藏巨集對話視窗
+ *    
+ * 2. uptime: 取得 MS-Windows 自開機以來所運作的「毫秒數」，並將此值儲存變數 intvar 當中。
+ *    若 MS-Windows 系統連續運作 49.7 日，則此值會直接歸靈。
+ *
+(*)?*/
+
+Day = 0
+Hour = 0
+Min = 0
+Sec = 0
+
+show 1
+
+uptime intvar
+Day = intvar / 86400000
+intvar = intvar % 86400000
+
+Hour = intvar / 3600000
+intvar = intvar % 3600000
+
+Min = intvar / 60000
+intvar = intvar % 60000
+
+Sec = intvar / 1000
+
+sprintf2 str "System Up Time: %d Days, %d Hours, %d Minutes, %d Seconds" Day Hour Min Sec
+messagebox str "UpTime:"
+
+exit

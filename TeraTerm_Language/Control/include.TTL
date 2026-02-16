@@ -1,0 +1,31 @@
+/**
+ * File Name: include.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. 這是主檔案，在執行的過程當中會直接 include 副檔案 (sub_file.TTL)。
+ * 2. 但是，也可以重複 include ；其行為就相當於再執行一次。
+ *
+(*)?*/
+
+MSG = "###### Hello!! World!! ######"
+
+include "sub_file.TTL"
+
+sendln "###### Here is the MAIN (17) file!! ######"
+sendln ""
+pause 1
+
+sendln MSG
+sendln ""
+pause 1
+
+include "sub_file.TTL"
+
+sendln "###### Here is the MAIN (27) file!! ######"
+sendln ""
+pause 1
+
+exit

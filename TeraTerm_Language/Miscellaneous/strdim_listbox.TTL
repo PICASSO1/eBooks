@@ -1,0 +1,57 @@
+/**
+ * File Name: strdim_listbox.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. strdim <array> <size>
+ *    <array>: 字串陣列名稱
+ *    <size>: 陣列大小；索引值從０開始
+ * 
+ * 2. listbox <message> <title> <string array> <selected>
+ *    <message>: 所要呈現的訊息，訊息當中所使用的跳脫字元，用 ASCII 碼表示，且用雙引號括起來。
+ *    <title>: 視窗的標題列；但標題列無法換行。
+ *    <string array>: 提供給使用者的選項，要用字串陣列的方式來呈現。
+ *    <selected>: 選項預設的索引值 (從０開始)
+ *
+ * 3. listbox 的回傳值會儲存在系統的全域變數 result；若使用者按下「Cancel」則是回傳 -1。
+ *
+(*)?*/
+
+strdim GAMEs 9
+GAMEs[0] = "Street Fighters"
+GAMEs[1] = "The King of Fighters"
+GAMEs[2] = "World Hero"
+GAMEs[3] = "Art of Fighters"
+GAMEs[4] = "Fatal Fury"
+GAMEs[5] = "The Last Blade"
+GAMEs[6] = "Samurai Shodown"
+GAMEs[7] = "Metal Slug"
+GAMEs[8] = "I DON'T KNOW??"
+
+listbox "What's your favorite game??" "Games: " GAMEs 4
+
+if result = 0 then
+	messagebox GAMEs[0] "Your favorite game is: "
+elseif result = 1 then
+	messagebox GAMEs[1] "Your favorite game is: "
+elseif result = 2 then
+	messagebox GAMEs[2] "Your favorite game is: "
+elseif result = 3 then
+	messagebox GAMEs[3] "Your favorite game is: "
+elseif result = 4 then
+	messagebox GAMEs[4] "Your favorite game is: "
+elseif result = 5 then
+	messagebox GAMEs[5] "Your favorite game is: "
+elseif result = 6 then
+	messagebox GAMEs[6] "Your favorite game is: "
+elseif result = 7 then
+	messagebox GAMEs[7] "Your favorite game is: "
+elseif result = 8 then
+	messagebox GAMEs[8] "Your favorite game is: "
+else
+	messagebox "Why don't you click CANCEL??" "result = -1"
+endif
+
+exit

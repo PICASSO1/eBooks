@@ -1,0 +1,27 @@
+/**
+ * File Name: int2str_str2int.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. int2str: <strvar> <integer value>：能夠把「整數」轉換為「字串」
+ *    <strvar>: 轉換後要儲存的「字串」變數
+ *    <integer value>: 要被轉換的「整數」
+ *
+ * 2. str2int: <intvar> <string>：能夠把「字串」轉換為「整數」
+ *    <intvar>: 轉換後要儲存的「整數」變數
+ *    <string>: 要被轉換的「字串」
+ * 
+(*)?*/
+
+strTemp = "\0"
+nTemp = 0
+
+int2str strTemp 123456
+messagebox strTemp "int2str: "
+
+str2int nTemp "789012"
+messagebox nTemp "str2int: "
+
+exit

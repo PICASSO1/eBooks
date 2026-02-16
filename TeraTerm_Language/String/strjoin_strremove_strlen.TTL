@@ -1,0 +1,74 @@
+/**
+ * File Name: strjoin_strremove_strlen.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. strjoin: <strvar> <separator> <count>：使用分隔符號將９組字串，串接起來。
+ *    <strvar>: 最後字串所要儲存的字串變數
+ *    <separator>: 分隔符號
+ *    <count>: 所要串接的最大組數，預設值為９
+ *    要加入的９組字串，並非隨便宣告，而是要系統指定的 groupmatchstr1 ~ groupmatchstr9 (如以下範例)
+ *
+ * 2. strremove: <strvar> <index> <len>：刪除字串
+ *    <strvar>: 要被刪除的字串
+ *    <index>: strvar 的索引位置，索引值從１開始
+ *    <len>: 要被刪除的長度
+ *
+ * 3. strlen: <string> 計算字串的長度；長度回儲存在系統變數 result。
+ *    
+(*)?*/
+
+/*******************************strjoin*******************************/
+
+strTemp = "\0"
+groupmatchstr1 = "Jan"
+groupmatchstr2 = "Feb"
+groupmatchstr3 = "Mar"
+groupmatchstr4 = "Apr"
+groupmatchstr5 = "May"
+groupmatchstr6 = "Jun"
+groupmatchstr7 = "Jul"
+groupmatchstr8 = "Aug"
+groupmatchstr9 = "Sep"
+strjoin strTemp ", " 6
+messagebox strTemp "strjoin: 1"
+
+strTemp = "\0"
+groupmatchstr1 = "Sun"
+groupmatchstr2 = "Mon"
+groupmatchstr3 = "Tue"
+groupmatchstr4 = "Wed"
+groupmatchstr5 = "Thu"
+groupmatchstr6 = "Fri"
+groupmatchstr7 = "Sat"
+groupmatchstr8 = "\0"
+groupmatchstr9 = ""
+strjoin strTemp "-"
+messagebox strTemp "strjoin: 2"
+
+strTemp = "\0"
+groupmatchstr1 = "03"
+groupmatchstr2 = "5E"
+groupmatchstr3 = "ED"
+groupmatchstr4 = "6F"
+groupmatchstr5 = "87"
+groupmatchstr6 = "09"
+strjoin strTemp ":"
+messagebox strTemp "strjoin: 3"
+
+/*******************************strremove*****************************/
+
+; before: strTemp = "03:5E:ED:6F:87:09:Sat:\0:"
+strremove strTemp 18 8
+messagebox strTemp "strremove: "
+; after: strTemp = "03:5E:ED:6F:87:09"
+
+/*******************************strlen*******************************/
+
+strlen strTemp
+sprintf "strlen(%s) = %d" strTemp result
+messagebox inputstr "strlen: "
+
+exit

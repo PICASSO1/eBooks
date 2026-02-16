@@ -1,0 +1,46 @@
+/**
+ * File Name: call_return_goto_end.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021526
+ * Date: 2026 / 02 / 15
+ * Description:
+ * 1. call & return 要搭配一起使用，可以利用這種特性來建立一個簡單的函式。
+ * 2. 若函式當中，需要傳遞參數 (Parameter)，則可利用全域變數的方式來達成。
+ * 3. end 等價於 exit；但並不直覺。
+ *
+(*)?*/
+
+FLAG = 0
+
+sendln "###### Here is the MAIN (Line 13) function!! ######"
+sendln ""
+FLAG = 1
+pause 1
+call SUB_FUNC
+
+FLAG = 0
+
+sendln "###### Here is the MAIN (Line 23) function!! ######"
+sendln ""
+pause 1
+
+; 當 FLAG = 1 的時候，代表 SUB_FUNC 這個標籤 (Label)被當成函式來使用；
+; 否則，當執行到 return 的時候，會出現 error ，不知道是誰在 call
+:SUB_FUNC
+	if FLAG = 0 then 
+		goto STATUS
+	endif
+
+	sendln "###### Here is the SUB function!! ######"
+	sendln ""
+	pause 1
+	return
+
+:STATUS
+	sendln "###### Here is the STATUS Label!! ######"
+	sendln ""
+	pause 1
+
+; exit
+end

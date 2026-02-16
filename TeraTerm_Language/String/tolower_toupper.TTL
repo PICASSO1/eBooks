@@ -1,0 +1,22 @@
+/**
+ * File Name: tolower_toupper.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. tolower / toupper: <strvar> <string>：能夠把字串做大小寫的轉換
+ *    <strvar>: 轉換後要儲存的變數
+ *    <string>: 原始的字串
+ *
+(*)?*/
+
+tolower lower_case "Hello!! World!! "
+toupper upper_case "world!! hello!! "
+
+messagebox lower_case "This is the LowerCase:"
+messagebox upper_case "This is the UpperCase:"
+
+mpause 10000
+
+exit

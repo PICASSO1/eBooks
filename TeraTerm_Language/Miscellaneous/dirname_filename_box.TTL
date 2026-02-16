@@ -1,0 +1,38 @@
+/**
+ * File Name: dirname_filename_box.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. dirnamebox: <title> 
+ *    可以讓使用者選擇一個資料夾，資料夾的路徑名稱會儲存在系統的全域變數 inputstr；且全域變數 result 設定為１。
+ *    若使用者按下「Cancel」鍵，result 依舊為０。
+ *
+ * 2. filenamebox: <title> <dialogtype> <initialdir>
+ *    <dialogtype>: ０為建立「開啟」檔案的對話框；１為建立「儲存」檔案的對話框。
+ *    <initialdir>: 可以指定要開啟檔案的預設路徑
+ *    可以讓使用者選擇一個檔案，檔案的路徑名稱會儲存在系統的全域變數 inputstr；且全域變數 result 設定為１。
+ *    若使用者按下「Cancel」鍵，result 依舊為０。
+ *
+(*)?*/
+
+dirnamebox "Please select a folder: "
+if result = 1 then
+	messagebox inputstr "Your select directory is: "
+elseif result = 0 then
+	messagebox "Why DON'T you choose a folder?? " "WHAT's?? "
+else
+	
+endif
+
+filenamebox "Please select a file: " 0 "D:\"
+if result = 1 then
+	messagebox inputstr "Your select file is: "
+elseif result = 0 then
+	messagebox "Why DON'T you choose a file?? " "WHAT's?? "
+else
+	
+endif
+
+exit

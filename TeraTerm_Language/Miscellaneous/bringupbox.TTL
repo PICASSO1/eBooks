@@ -1,0 +1,26 @@
+/**
+ * File Name: bringupbox.TTL
+ * CopyLeft (C) 2026.
+ * Author: Pablo Picasso G.
+ * Version: 1.0.0.build021626
+ * Date: 2026 / 02 / 16
+ * Description:
+ * 1. bringupbox: 一個不怎麼實用的功能，必須搭配 statusbox 一起使用；bringupbox 會把 statusbox 一直顯示在最上層。
+ *
+(*)?*/
+
+CNT = 0
+
+while 1
+	call FUNC
+	mpause 2000
+	
+	bringupbox
+endwhile
+
+:FUNC
+statusbox CNT "COUNTs:"
+CNT = CNT + 1
+return
+
+exit
