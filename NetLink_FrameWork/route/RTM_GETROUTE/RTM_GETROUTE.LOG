@@ -1,0 +1,841 @@
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#tcpdump -i nlmon0 -w RTM_GETROUT.PCAPNG & 
+[1] 17447
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#./main && sleep 1;
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 0 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 254 
+Routing Protocol: DHCP Client (0x10)
+Route Origin: Global Route (0x00) 
+Route Type: Gateway or direct route (0x01) 
+Routing Flags: 0x00000000 
+RTA_TABLE: main (254) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FE 
+Metric (Priority): 100 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Gateway of the Route: 192.168.1.1 
+  Len: 8 
+  Type: RTA_GATEWAY (0x0005)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 16 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 254 
+Routing Protocol: Route installed during boot (0x03)
+Route Origin: Route on this link (0xFD) 
+Route Type: Gateway or direct route (0x01) 
+Routing Flags: 0x00000000 
+RTA_TABLE: main (254) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FE 
+Route Destination Address: 169.254.0.0 
+  Len: 8 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 1000 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 24 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 254 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Route on this link (0xFD) 
+Route Type: Gateway or direct route (0x01) 
+Routing Flags: 0x00000000 
+RTA_TABLE: main (254) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FE 
+Route Destination Address: 192.168.1.0 
+  Len: 8 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 100 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Preferred Source Address: 192.168.1.104 
+  Len: 8 
+  Type: RTA_PREFSRC (0x0007)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 8 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Route on the local Host (0xFE) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 127.0.0.0 
+  Len: 8 
+  Type: RTA_DST (0x0001)
+Preferred Source Address: 127.0.0.1 
+  Len: 8 
+  Type: RTA_PREFSRC (0x0007)
+Output Interface Index: lo (1) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 32 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Route on the local Host (0xFE) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 127.0.0.1 
+  Len: 8 
+  Type: RTA_DST (0x0001)
+Preferred Source Address: 127.0.0.1 
+  Len: 8 
+  Type: RTA_PREFSRC (0x0007)
+Output Interface Index: lo (1) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 32 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Route on this link (0xFD) 
+Route Type: Accept locally as broadcast, send as broadcast (0x03) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 127.255.255.255 
+  Len: 8 
+  Type: RTA_DST (0x0001)
+Preferred Source Address: 127.0.0.1 
+  Len: 8 
+  Type: RTA_PREFSRC (0x0007)
+Output Interface Index: lo (1) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 32 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Route on the local Host (0xFE) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 192.168.1.104 
+  Len: 8 
+  Type: RTA_DST (0x0001)
+Preferred Source Address: 192.168.1.104 
+  Len: 8 
+  Type: RTA_PREFSRC (0x0007)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Length of Destination: 32 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Route on this link (0xFD) 
+Route Type: Accept locally as broadcast, send as broadcast (0x03) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 192.168.1.255 
+  Len: 8 
+  Type: RTA_DST (0x0001)
+Preferred Source Address: 192.168.1.104 
+  Len: 8 
+  Type: RTA_PREFSRC (0x0007)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 254 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Gateway or direct route (0x01) 
+Routing Flags: 0x00000000 
+RTA_TABLE: main (254) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FE 
+Route Destination Address: ::1 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 256 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: lo (1) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 64 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 254 
+Routing Protocol: RDISC/ND Router Advertisements (0x09)
+Route Origin: Global Route (0x00) 
+Route Type: Gateway or direct route (0x01) 
+Routing Flags: 0x00000000 
+RTA_TABLE: main (254) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FE 
+Route Destination Address: 2001:b011:3006:ba76:: 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 100 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Gateway of the Route: fe80::5683:3aff:fea0:a0d4 
+  Len: 20 
+  Type: RTA_GATEWAY (0x0005)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x01 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 64 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 254 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Gateway or direct route (0x01) 
+Routing Flags: 0x00000000 
+RTA_TABLE: main (254) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FE 
+Route Destination Address: fe80:: 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 100 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 0 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 254 
+Routing Protocol: RDISC/ND Router Advertisements (0x09)
+Route Origin: Global Route (0x00) 
+Route Type: Gateway or direct route (0x01) 
+Routing Flags: 0x00000000 
+RTA_TABLE: main (254) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FE 
+Metric (Priority): 100 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Gateway of the Route: fe80::5683:3aff:fea0:a0d4 
+  Len: 20 
+  Type: RTA_GATEWAY (0x0005)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: ::1 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 0 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: lo (1) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 2001:b011:3006:ba76:3411:bb6a:ccfd:9306 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 0 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 2001:b011:3006:ba76:3836:9c44:ad8c:9285 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 0 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 2001:b011:3006:ba76:51c6:fe2d:ff82:3df9 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 0 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 2001:b011:3006:ba76:a595:751d:b287:bbb 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 0 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: 2001:b011:3006:ba76:bae2:800e:55c6:ba8d 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 0 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 128 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Local interface route (0x02) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: fe80::e27e:476:b87c:8aa7 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 0 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+Message Type: RTM_NEWROUTE (24) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Length of Destination: 8 
+Length of Source: 0 
+TOS Filter: 0x00 
+Routing Table ID: 255 
+Routing Protocol: Route installed by kernel (0x02)
+Route Origin: Global Route (0x00) 
+Route Type: Multicast route (0x05) 
+Routing Flags: 0x00000000 
+RTA_TABLE: local (255) 
+  Len: 8 
+  Type: RTA_TABLE (0x000F)
+  Data: 000000FF 
+Route Destination Address: ff00:: 
+  Len: 20 
+  Type: RTA_DST (0x0001)
+Metric (Priority): 256 
+  Len: 8 
+  Type: RTA_PRIORITY (0x0006)
+Output Interface Index: enp0s3 (2) 
+  Len: 8 
+  Type: RTA_OIF (0x0003)
+RTA_CACHEINFO: 
+  Len: 36 
+  Type: RTA_CACHEINFO (0x000C)
+  Data: 0000000000000000000000000000000000000000000000000000000000000000
+    User Count: 0 
+    Last Use: 0 
+    Expires: 0 
+    Error: 0 
+    Used Count: 0 
+    ID :0 
+    TS: 0 
+    TSAGE: 0 
+RTA_PREF (IPv6 Preference): 0x00 
+  Len: 5 
+  Type: RTA_PREF (0x0014)
+
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#kill -s SIGTERM $(pidof "tcpdump")
+4 packets captured
+7 packets received by filter
+0 packets dropped by kernel
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#
+[1]+  已完成               tcpdump -i nlmon0 -w RTM_GETROUT.PCAPNG
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETROUTE#

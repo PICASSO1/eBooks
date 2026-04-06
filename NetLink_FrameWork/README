@@ -1,0 +1,37 @@
+
+A. 建立 nlmon 介面：
+1. sudo modprobe nlmon
+2. sudo ip link add nlmon0 type nlmon
+3. sudo ip link set nlmon0 up
+
+B. 及時抓取封包的方式：
+1. tcpdump -i nlmon0 -w SAMPLE.PCAPNG & 
+2. ./main && sleep 1;
+3. kill -s SIGTERM $(pidof "tcpdump")
+
+Refer: 
+1. Netlink Sockets: 
+https://hackmd.io/@zoo868e/LKN-Netlink
+
+2. Linux Kernel Networking - Implementation and Theory: 
+https://hackmd.io/@zoo868e/Linux_Kernel_Networking_Note
+
+3. 參考書：
+精通 Linux 內核網絡 (Linux Kernel Networking: Implementation and Theory) | 天瓏網路書店
+
+4. Netlink WiKi: https://zh.wikipedia.org/zh-tw/Netlink
+
+5. Kernel Korner - Why and How to Use Netlink Socket: 
+https://www.linuxjournal.com/article/7356
+
+6. Netlink Library (libnl) Official WebSite：
+https://www.infradead.org/~tgr/libnl/doc/core.html
+
+7. Netlink Protocol Library Suite (libnl)：
+https://www.infradead.org/~tgr/libnl/
+
+8. Linux Wireless Documentation:
+https://wireless.docs.kernel.org/en/latest/#
+
+9. Netlink Handbook: 
+https://docs.kernel.org/userspace-api/netlink/index.html

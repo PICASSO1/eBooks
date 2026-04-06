@@ -1,0 +1,487 @@
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#tcpdump -i nlmon0 -w RTM_GETLINK.PCAPNG & 
+[1] 15057
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#./main && sleep 1;
+Message Type: RTM_NEWLINK (16) 
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Interface Family: AF_UNSPEC (0) 
+Device Type: ARPHRD_LOOPBACK (772) 
+Interface Index: 1 
+Device Flags: IFF_UP IFF_LOOPBACK IFF_RUNNING (0x00010049) 
+Device Name: lo
+  Len: 7 
+  Type: IFLA_IFNAME (0x0003)
+TxQueue Length: 1000
+  Len: 8 
+  Type: IFLA_TXQLEN (0x000D)
+Operstate: UNKNOWN (0)
+  Len: 5 
+  Type: IFLA_OPERSTATE (0x0010)
+Link Mode: DEFAULT (0)
+  Len: 5 
+  Type: IFLA_LINKMODE (0x0011)
+MTU: 65536
+  Len: 8 
+  Type: IFLA_MTU (0x0004)
+Minimum MTU: 0
+  Len: 8 
+  Type: IFLA_MIN_MTU (0x0032)
+Maximum MTU: 0
+  Len: 8 
+  Type: IFLA_MAX_MTU (0x0033)
+Group: 0
+  Len: 8 
+  Type: IFLA_GROUP (0x001B)
+Promiscuity: 0
+  Len: 8 
+  Type: IFLA_PROMISCUITY (0x001E)
+Number of Tx Queues: 1
+  Len: 8 
+  Type: IFLA_NUM_TX_QUEUES (0x001F)
+Maximum GSO Segment Count: 65535
+  Len: 8 
+  Type: IFLA_GSO_MAX_SEGS (0x0028)
+Maximum GSO Size: 65536
+  Len: 8 
+  Type: IFLA_GSO_MAX_SIZE (0x0029)
+Number of Rx Queues: 1
+  Len: 8 
+  Type: IFLA_NUM_RX_QUEUES (0x0020)
+Carrier: Restricted
+  Len: 5 
+  Type: IFLA_CARRIER (0x0021)
+Queueing Discipline: noqueue
+  Len: 12 
+  Type: IFLA_QDISC (0x0006)
+Carrier Changes: 0
+  Len: 8 
+  Type: IFLA_CARRIER_CHANGES (0x0023)
+Carrier Up Count: 0
+  Len: 8 
+  Type: IFLA_CARRIER_UP_COUNT (0x002F)
+Carrier Down Count: 0
+  Len: 8 
+  Type: IFLA_CARRIER_DOWN_COUNT (0x0030)
+IFLA_PROTO_DOWN: 
+  Len: 5 
+  Type: IFLA_PROTO_DOWN (0x0027)
+  Data: 00 
+Map:
+  Len         : 36
+  Type        : IFLA_MAP (0x000E)
+  Memory start: 0x0000000000000000
+  Memory end  : 0x0000000000000000
+  Base address: 0x0000000000000000
+  IRQ         : 0
+  DMA         : 0
+  Port        : 0
+HW Address: 00:00:00:00:00:00
+  Len: 10 
+  Type: IFLA_ADDRESS (0x0001)
+Broadcast: 00:00:00:00:00:00
+  Len: 10 
+  Type: IFLA_BROADCAST (0x0002)
+Stats64:
+  Len: 196 
+  Type: IFLA_STATS64 (0x0017)
+  Rx packets           : 7346
+  Tx packets           : 7346
+  Rx bytes             : 580041
+  Tx bytes             : 580041
+  Rx errors            : 0
+  Tx errors            : 0
+  Rx dropped           : 0
+  Tx dropped           : 0
+  Multicast Rx         : 0
+  Collisions           : 0
+  Rx errors 
+    Rx length errors   : 0
+    Rx over errors     : 0
+    Rx CRC errors      : 0
+    Rx frame errors    : 0
+    Rx FIFO errors     : 0
+    Rx missed errors   : 0
+  Tx errors 
+    Tx aborted errors  : 0
+    Tx carrier errors  : 0
+    Tx FIFO errors     : 0
+    Tx heartbeat errors: 0
+    Tx window errors   : 0
+Interface Statistics: 
+  Len: 100 
+  Type: IFLA_STATS (0x0007)
+  Rx packets           : 7346
+  Tx packets           : 7346
+  Rx bytes             : 580041
+  Tx bytes             : 580041
+  Rx errors            : 0
+  Tx errors            : 0
+  Rx dropped           : 0
+  Tx dropped           : 0
+  Multicast Rx         : 0
+  Collisions           : 0
+  Rx errors 
+    Rx length errors   : 0
+    Rx over errors     : 0
+    Rx CRC errors      : 0
+    Rx frame errors    : 0
+    Rx FIFO errors     : 0
+    Rx missed errors   : 0
+  Tx errors 
+    Tx aborted errors  : 0
+    Tx carrier errors  : 0
+    Tx FIFO errors     : 0
+    Tx heartbeat errors: 0
+    Tx window errors   : 0
+IFLA_XDP:
+  Len: 12
+  Type: IFLA_XDP (0x002B)
+  Data: 0500020000000000
+    XDP Attr Len : 5
+    XDP Attr Type: 0x0002
+    IFLA_XDP_ATTACHED: 0 (XDP_ATTACHED_NONE)
+AF SPEC:
+  Len: 792
+  Type: IFLA_AF_SPEC (0x001A)
+  Data: 8800020084000100000000000000000000000000010000000100000001000000010000000000000001000000000000000000000000000000000000000000000001000000010000000000000000000000000000000100000000000000000000000000000000000000000000000000000010270000e8030000000000000000000000000000000000008c020a00080001000000008014000500ffff00001c020000607d0000e8030000f000020000000000400000000000010001000000010000000100000001000000ffffffffa00f0000e8030000ffffffff803a0900805101000300000058020000100000000000000001000000010000000100000060ea0000000000000000000000000000000000000000000000000000ffffffff000000000000000010270000e8030000010000000000000000000000010000000000000000000000010000000000000000000000000000000000000080ee360000000000000000000100000000000000000000000000000000000000000000000004000000000000ffff0000ffffffff0000000000000000000000002c01030025000000000000000200000000000000980000000000000002000000000000000000000000000000020000000000000098000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000009800000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000000000000003400060006000000000000000200000000000000000000000000000002000000000000000000000000000000000000000000000014000700000000000000000000000000000000000500080000000000
+    AF Attr Len : 136
+    AF Attr Type: 0x0002 (2)
+    AF_INET
+    AF Attr Len : 652
+    AF Attr Type: 0x000A (10)
+    AF_INET6
+
+Message Type: RTM_NEWLINK (16) 
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Interface Family: AF_UNSPEC (0) 
+Device Type: ARPHRD_ETHER (1) 
+Interface Index: 2 
+Device Flags: IFF_UP IFF_BROADCAST IFF_RUNNING IFF_MULTICAST (0x00011043) 
+Device Name: enp0s3
+  Len: 11 
+  Type: IFLA_IFNAME (0x0003)
+TxQueue Length: 1000
+  Len: 8 
+  Type: IFLA_TXQLEN (0x000D)
+Operstate: UP (6)
+  Len: 5 
+  Type: IFLA_OPERSTATE (0x0010)
+Link Mode: DEFAULT (0)
+  Len: 5 
+  Type: IFLA_LINKMODE (0x0011)
+MTU: 1500
+  Len: 8 
+  Type: IFLA_MTU (0x0004)
+Minimum MTU: 46
+  Len: 8 
+  Type: IFLA_MIN_MTU (0x0032)
+Maximum MTU: 16110
+  Len: 8 
+  Type: IFLA_MAX_MTU (0x0033)
+Group: 0
+  Len: 8 
+  Type: IFLA_GROUP (0x001B)
+Promiscuity: 0
+  Len: 8 
+  Type: IFLA_PROMISCUITY (0x001E)
+Number of Tx Queues: 1
+  Len: 8 
+  Type: IFLA_NUM_TX_QUEUES (0x001F)
+Maximum GSO Segment Count: 65535
+  Len: 8 
+  Type: IFLA_GSO_MAX_SEGS (0x0028)
+Maximum GSO Size: 65536
+  Len: 8 
+  Type: IFLA_GSO_MAX_SIZE (0x0029)
+Number of Rx Queues: 1
+  Len: 8 
+  Type: IFLA_NUM_RX_QUEUES (0x0020)
+Carrier: Restricted
+  Len: 5 
+  Type: IFLA_CARRIER (0x0021)
+Queueing Discipline: fq_codel
+  Len: 13 
+  Type: IFLA_QDISC (0x0006)
+Carrier Changes: 2
+  Len: 8 
+  Type: IFLA_CARRIER_CHANGES (0x0023)
+Carrier Up Count: 1
+  Len: 8 
+  Type: IFLA_CARRIER_UP_COUNT (0x002F)
+Carrier Down Count: 1
+  Len: 8 
+  Type: IFLA_CARRIER_DOWN_COUNT (0x0030)
+IFLA_PROTO_DOWN: 
+  Len: 5 
+  Type: IFLA_PROTO_DOWN (0x0027)
+  Data: 00 
+Map:
+  Len         : 36
+  Type        : IFLA_MAP (0x000E)
+  Memory start: 0x0000000000000000
+  Memory end  : 0x0000000000000000
+  Base address: 0x0000000000000000
+  IRQ         : 0
+  DMA         : 0
+  Port        : 0
+HW Address: 08:00:27:BE:EC:DF
+  Len: 10 
+  Type: IFLA_ADDRESS (0x0001)
+Broadcast: FF:FF:FF:FF:FF:FF
+  Len: 10 
+  Type: IFLA_BROADCAST (0x0002)
+Stats64:
+  Len: 196 
+  Type: IFLA_STATS64 (0x0017)
+  Rx packets           : 81026
+  Tx packets           : 61089
+  Rx bytes             : 28975257
+  Tx bytes             : 7174254
+  Rx errors            : 0
+  Tx errors            : 0
+  Rx dropped           : 12
+  Tx dropped           : 0
+  Multicast Rx         : 18610
+  Collisions           : 0
+  Rx errors 
+    Rx length errors   : 0
+    Rx over errors     : 0
+    Rx CRC errors      : 0
+    Rx frame errors    : 0
+    Rx FIFO errors     : 0
+    Rx missed errors   : 0
+  Tx errors 
+    Tx aborted errors  : 0
+    Tx carrier errors  : 0
+    Tx FIFO errors     : 0
+    Tx heartbeat errors: 0
+    Tx window errors   : 0
+Interface Statistics: 
+  Len: 100 
+  Type: IFLA_STATS (0x0007)
+  Rx packets           : 81026
+  Tx packets           : 61089
+  Rx bytes             : 28975257
+  Tx bytes             : 7174254
+  Rx errors            : 0
+  Tx errors            : 0
+  Rx dropped           : 12
+  Tx dropped           : 0
+  Multicast Rx         : 18610
+  Collisions           : 0
+  Rx errors 
+    Rx length errors   : 0
+    Rx over errors     : 0
+    Rx CRC errors      : 0
+    Rx frame errors    : 0
+    Rx FIFO errors     : 0
+    Rx missed errors   : 0
+  Tx errors 
+    Tx aborted errors  : 0
+    Tx carrier errors  : 0
+    Tx FIFO errors     : 0
+    Tx heartbeat errors: 0
+    Tx window errors   : 0
+IFLA_XDP:
+  Len: 12
+  Type: IFLA_XDP (0x002B)
+  Data: 0500020000000000
+    XDP Attr Len : 5
+    XDP Attr Type: 0x0002
+    IFLA_XDP_ATTACHED: 0 (XDP_ATTACHED_NONE)
+  Len: 10 
+  Type: Unknown Attribute Type?? (0x0036)
+AF SPEC:
+  Len: 792
+  Type: IFLA_AF_SPEC (0x001A)
+  Data: 8800020084000100000000000000000000000000010000000100000001000000010000000200000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000010270000e8030000000000000000000000000000000000008c020a00080001000000008014000500ffff0000810e00009c6c0000e8030000f00002000000000040000000d405000000000000010000000100000001000000ffffffffa00f0000e803000002000000803a0900805101000300000058020000100000000000000001000000010000000100000060ea000000000000000000000000000000000000000000000000000001000000000000000000000010270000e8030000010000000000000000000000010000000000000000000000010000000000000000000000000000000000000080ee360000000000000000000100000001000000000000000000000000000000000000000004000000000000ffff0000ffffffff0000000000000000000000002c01030025000000000000008e760000000000005c554801000000008d760000000000000000000000000000987f0000000000003e9f39000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006d320000000000008a2e00000000000000000000000000000000000000000000dca928000000000038fd1b0000000000000000000000000000000000000000000000000000000000ed890000000000000000000000000000000000000000000000000000000000000000000000000000340006000600000000000000ce1e000000000000000000000000000009390000000000000000000000000000000000000000000014000700000000000000000000000000000000000500080001000000
+    AF Attr Len : 136
+    AF Attr Type: 0x0002 (2)
+    AF_INET
+    AF Attr Len : 652
+    AF Attr Type: 0x000A (10)
+    AF_INET6
+  Len: 17 
+  Type: Unknown Attribute Type?? (0x0038)
+  Len: 8 
+  Type: Unknown Attribute Type?? (0x0039)
+
+Message Type: RTM_NEWLINK (16) 
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Interface Family: AF_UNSPEC (0) 
+Device Type: ARPHRD_NETLINK (824) 
+Interface Index: 3 
+Device Flags: IFF_UP IFF_RUNNING IFF_NOARP (0x000100C1) 
+Device Name: nlmon0
+  Len: 11 
+  Type: IFLA_IFNAME (0x0003)
+TxQueue Length: 1000
+  Len: 8 
+  Type: IFLA_TXQLEN (0x000D)
+Operstate: UNKNOWN (0)
+  Len: 5 
+  Type: IFLA_OPERSTATE (0x0010)
+Link Mode: DEFAULT (0)
+  Len: 5 
+  Type: IFLA_LINKMODE (0x0011)
+MTU: 3776
+  Len: 8 
+  Type: IFLA_MTU (0x0004)
+Minimum MTU: 16
+  Len: 8 
+  Type: IFLA_MIN_MTU (0x0032)
+Maximum MTU: 0
+  Len: 8 
+  Type: IFLA_MAX_MTU (0x0033)
+Group: 0
+  Len: 8 
+  Type: IFLA_GROUP (0x001B)
+Promiscuity: 1
+  Len: 8 
+  Type: IFLA_PROMISCUITY (0x001E)
+Number of Tx Queues: 1
+  Len: 8 
+  Type: IFLA_NUM_TX_QUEUES (0x001F)
+Maximum GSO Segment Count: 65535
+  Len: 8 
+  Type: IFLA_GSO_MAX_SEGS (0x0028)
+Maximum GSO Size: 65536
+  Len: 8 
+  Type: IFLA_GSO_MAX_SIZE (0x0029)
+Number of Rx Queues: 1
+  Len: 8 
+  Type: IFLA_NUM_RX_QUEUES (0x0020)
+Carrier: Restricted
+  Len: 5 
+  Type: IFLA_CARRIER (0x0021)
+Queueing Discipline: noqueue
+  Len: 12 
+  Type: IFLA_QDISC (0x0006)
+Carrier Changes: 0
+  Len: 8 
+  Type: IFLA_CARRIER_CHANGES (0x0023)
+Carrier Up Count: 0
+  Len: 8 
+  Type: IFLA_CARRIER_UP_COUNT (0x002F)
+Carrier Down Count: 0
+  Len: 8 
+  Type: IFLA_CARRIER_DOWN_COUNT (0x0030)
+IFLA_PROTO_DOWN: 
+  Len: 5 
+  Type: IFLA_PROTO_DOWN (0x0027)
+  Data: 00 
+Map:
+  Len         : 36
+  Type        : IFLA_MAP (0x000E)
+  Memory start: 0x0000000000000000
+  Memory end  : 0x0000000000000000
+  Base address: 0x0000000000000000
+  IRQ         : 0
+  DMA         : 0
+  Port        : 0
+Stats64:
+  Len: 196 
+  Type: IFLA_STATS64 (0x0017)
+  Rx packets           : 140421
+  Tx packets           : 0
+  Rx bytes             : 24653128
+  Tx bytes             : 0
+  Rx errors            : 0
+  Tx errors            : 0
+  Rx dropped           : 0
+  Tx dropped           : 0
+  Multicast Rx         : 0
+  Collisions           : 0
+  Rx errors 
+    Rx length errors   : 0
+    Rx over errors     : 0
+    Rx CRC errors      : 0
+    Rx frame errors    : 0
+    Rx FIFO errors     : 0
+    Rx missed errors   : 0
+  Tx errors 
+    Tx aborted errors  : 0
+    Tx carrier errors  : 0
+    Tx FIFO errors     : 0
+    Tx heartbeat errors: 0
+    Tx window errors   : 0
+Interface Statistics: 
+  Len: 100 
+  Type: IFLA_STATS (0x0007)
+  Rx packets           : 140421
+  Tx packets           : 0
+  Rx bytes             : 24653128
+  Tx bytes             : 0
+  Rx errors            : 0
+  Tx errors            : 0
+  Rx dropped           : 0
+  Tx dropped           : 0
+  Multicast Rx         : 0
+  Collisions           : 0
+  Rx errors 
+    Rx length errors   : 0
+    Rx over errors     : 0
+    Rx CRC errors      : 0
+    Rx frame errors    : 0
+    Rx FIFO errors     : 0
+    Rx missed errors   : 0
+  Tx errors 
+    Tx aborted errors  : 0
+    Tx carrier errors  : 0
+    Tx FIFO errors     : 0
+    Tx heartbeat errors: 0
+    Tx window errors   : 0
+IFLA_XDP:
+  Len: 12
+  Type: IFLA_XDP (0x002B)
+  Data: 0500020000000000
+    XDP Attr Len : 5
+    XDP Attr Type: 0x0002
+    IFLA_XDP_ATTACHED: 0 (XDP_ATTACHED_NONE)
+IFLA_LINKINFO: 
+  Len: 16
+  Type: IFLA_LINKINFO (0x0012)
+  Data: 0a0001006e6c6d6f6e000000
+    LINKINFO Attr Len : 10
+    LINKINFO Attr Type: 0x0001
+    IFLA_INFO_KIND: nlmon
+AF SPEC:
+  Len: 792
+  Type: IFLA_AF_SPEC (0x001A)
+  Data: 8800020084000100000000000000000000000000010000000100000001000000010000000200000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000010270000e8030000000000000000000000000000000000008c020a00080001000000008014000500ffff00008e3903000c860000e8030000f00002000000000040000000c00e000001000000010000000100000001000000ffffffffa00f0000e803000002000000803a0900805101000300000058020000100000000000000001000000010000000100000060ea0000000000000000000000000000000000000000000000000000ffffffff000000000000000010270000e8030000010000000000000000000000010000000000000000000000010000000000000000000000000000000000000080ee360000000000000000000100000000000000000000000000000000000000000000000004000000000000ffff0000ffffffff0000000000000000000000002c01030025000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003400060006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000014000700000000000000000000000000000000000500080000000000
+    AF Attr Len : 136
+    AF Attr Type: 0x0002 (2)
+    AF_INET
+    AF Attr Len : 652
+    AF Attr Type: 0x000A (10)
+    AF_INET6
+
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#kill -s SIGTERM $(pidof "tcpdump")
+4 packets captured
+7 packets received by filter
+0 packets dropped by kernel
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#
+[1]+  已完成               tcpdump -i nlmon0 -w RTM_GETLINK.PCAPNG
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETLINK#

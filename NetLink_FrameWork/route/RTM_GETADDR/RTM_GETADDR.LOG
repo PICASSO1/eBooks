@@ -1,0 +1,291 @@
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#tcpdump -i nlmon0 -w RTM_GETADDR.PCAPNG & 
+[1] 15424
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#./main && sleep 1;
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Address prefixlength: 8 
+Address Flags: permanent (0x00000080)
+Address Scope: 254 
+Interface Index: 1 
+Interface Address: 127.0.0.1 
+  Len: 8 
+  Type: IFA_ADDRESS (0x0001)
+Local Address: 127.0.0.1 
+  Len: 8 
+  Type: IFA_LOCAL (0x0002)
+Name of Interface: lo 
+  Len: 7 
+  Type: IFA_LABEL (0x0003)
+Address Flags: permanent (0x00000080)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: ffffffffffffffff1c0200001c020000
+    Preferred Lifetime: 4294967295 
+    Valid Lifetime: 4294967295 
+    Created (cstamp): 540 
+    Updated (tstamp): 540 
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET (2) 
+Address prefixlength: 24 
+Address Flags:  (0x00000000)
+Address Scope: 0 
+Interface Index: 2 
+Interface Address: 192.168.1.104 
+  Len: 8 
+  Type: IFA_ADDRESS (0x0001)
+Local Address: 192.168.1.104 
+  Len: 8 
+  Type: IFA_LOCAL (0x0002)
+Broadcast Address: 192.168.1.255 
+  Len: 8 
+  Type: IFA_BROADCAST (0x0004)
+Name of Interface: enp0s3 
+  Len: 11 
+  Type: IFA_LABEL (0x0003)
+Address Flags: noprefixroute (0x00000200)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: 79390100793901009f0e0000f7aa5a02
+    Preferred Lifetime: 80249 
+    Valid Lifetime: 80249 
+    Created (cstamp): 3743 
+    Updated (tstamp): 39496439 
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Address prefixlength: 128 
+Address Flags: permanent (0x00000080)
+Address Scope: 254 
+Interface Index: 1 
+Interface Address: ::1 
+  Len: 20 
+  Type: IFA_ADDRESS (0x0001)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: ffffffffffffffff1c0200001c020000
+    Preferred Lifetime: 4294967295 
+    Valid Lifetime: 4294967295 
+    Created (cstamp): 540 
+    Updated (tstamp): 540 
+Address Flags: permanent (0x00000080)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Address prefixlength: 64 
+Address Flags: secondary/temporary (0x00000001)
+Address Scope: 0 
+Interface Index: 2 
+Interface Address: 2001:b011:3006:ba76:3411:bb6a:ccfd:9306 
+  Len: 20 
+  Type: IFA_ADDRESS (0x0001)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: e6f3000046510100966d3602f7aa5a02
+    Preferred Lifetime: 62438 
+    Valid Lifetime: 86342 
+    Created (cstamp): 37121430 
+    Updated (tstamp): 39496439 
+Address Flags: secondary/temporary (0x00000001)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Address prefixlength: 64 
+Address Flags: secondary/temporary, deprecated (0x00000021)
+Address Scope: 0 
+Interface Index: 2 
+Interface Address: 2001:b011:3006:ba76:51c6:fe2d:ff82:3df9 
+  Len: 20 
+  Type: IFA_ADDRESS (0x0001)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: 0000000046510100fce1b201f7aa5a02
+    Preferred Lifetime: 0 
+    Valid Lifetime: 86342 
+    Created (cstamp): 28500476 
+    Updated (tstamp): 39496439 
+Address Flags: secondary/temporary, deprecated (0x00000021)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Address prefixlength: 64 
+Address Flags: secondary/temporary, deprecated (0x00000021)
+Address Scope: 0 
+Interface Index: 2 
+Interface Address: 2001:b011:3006:ba76:3836:9c44:ad8c:9285 
+  Len: 20 
+  Type: IFA_ADDRESS (0x0001)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: 000000004651010030562f01f7aa5a02
+    Preferred Lifetime: 0 
+    Valid Lifetime: 86342 
+    Created (cstamp): 19879472 
+    Updated (tstamp): 39496439 
+Address Flags: secondary/temporary, deprecated (0x00000021)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Address prefixlength: 64 
+Address Flags: secondary/temporary, deprecated (0x00000021)
+Address Scope: 0 
+Interface Index: 2 
+Interface Address: 2001:b011:3006:ba76:bae2:800e:55c6:ba8d 
+  Len: 20 
+  Type: IFA_ADDRESS (0x0001)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: 0000000046510100b1caab00f7aa5a02
+    Preferred Lifetime: 0 
+    Valid Lifetime: 86342 
+    Created (cstamp): 11258545 
+    Updated (tstamp): 39496439 
+Address Flags: secondary/temporary, deprecated (0x00000021)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Address prefixlength: 64 
+Address Flags:  (0x00000000)
+Address Scope: 0 
+Interface Index: 2 
+Interface Address: 2001:b011:3006:ba76:a595:751d:b287:bbb 
+  Len: 20 
+  Type: IFA_ADDRESS (0x0001)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: 4651010046510100b1caab00f7aa5a02
+    Preferred Lifetime: 86342 
+    Valid Lifetime: 86342 
+    Created (cstamp): 11258545 
+    Updated (tstamp): 39496439 
+Address Flags: managetempaddr, noprefixroute (0x00000300)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+
+Message Type: RTM_NEWADDR (20) 
+
+Flags: 0x0002 
+  Request: 0
+  Multipart Message: 1 
+  Ack: 0 
+  Echo: 0 
+  Dump Inconsistent: 0 
+  Dump Filtered: 0 
+Address Type: AF_INET6 (10) 
+Address prefixlength: 64 
+Address Flags: permanent (0x00000080)
+Address Scope: 253 
+Interface Index: 2 
+Interface Address: fe80::e27e:476:b87c:8aa7 
+  Len: 20 
+  Type: IFA_ADDRESS (0x0001)
+Address Information: 
+  Len: 20 
+  Type: IFA_CACHEINFO (0x0006)
+  Data: ffffffffffffffff860e0000f7aa5a02
+    Preferred Lifetime: 4294967295 
+    Valid Lifetime: 4294967295 
+    Created (cstamp): 3718 
+    Updated (tstamp): 39496439 
+Address Flags: permanent, noprefixroute (0x00000280)
+  Len: 8 
+  Type: IFA_FLAGS (0x0008)
+
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#kill -s SIGTERM $(pidof "tcpdump")
+4 packets captured
+7 packets received by filter
+0 packets dropped by kernel
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#
+[1]+  已完成               tcpdump -i nlmon0 -w RTM_GETADDR.PCAPNG
+root@picasso-VB:/media/NetLink_FrameWork/route/RTM_GETADDR#
