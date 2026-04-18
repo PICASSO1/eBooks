@@ -1,0 +1,42 @@
+
+A. 建立虛擬無線網路介面：
+01. modprobe mac80211_hwsim radios=3
+# 建立３組 Radio
+
+02. lsmod | grep "mac80211_hwsim"
+# 確認虛擬模組有被啟動
+
+03. iw dev && iwconfig 
+# 分別用 iw 和 iwconfig 指令確認，虛擬無線網路介面還沒有起來
+
+04. systemctl stop NetworkManager;
+# 先將所有的通訊網路介面都停止
+
+05. iw reg set US
+# 因為 5GHz 有 TPC 和 DFS 的考量，所以必須先設定 Country Region
+
+06. wpa_supplicant -i wlan0 -c /media/genl/nl80211/wpa_supplicant.conf & 
+# 把 wlan0 介面設定成 Station
+
+07. hostapd /media/genl/nl80211/hostapd_wlan1.conf &
+# 把 Radio 1 設定成 2.4GHz
+
+08. hostapd /media/genl/nl80211/hostapd_wlan2.conf &
+# 把 Radio 2 設定成 5GHz
+
+09. hostapd /media/genl/nl80211/hostapd_wlan2.conf &
+# 把 Radio 3 設定成 6GHz；但並不是每乙臺 Linux ubuntu 都可以設定；這一部份和 Linux Kernel 版本有關。
+
+10. iw dev && iwconfig
+# 最後再分別用 iw 和 iwconfig 指令確認所有的介面都是正常的
+
+B. 驗證時的環境：
+- Linux OS: 20.04.1-Ubunt (x86_64)
+- Kernel  : 5.15.0-139-generi
+
+C. 所有的指令均已寫成 Shell Script:
+- create_virtual_wlan_intf.sh
+- wpa_supplicant.conf (Station 的 wpa_supplicant.conf)
+- hostapd_wlan1.conf (2.4GHz 的 hostapd.conf)
+- hostapd_wlan2.conf (5GHz 的 hostapd.conf)
+- hostapd_wlan3.conf (6GHz 的 hostapd.conf)

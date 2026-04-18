@@ -1,0 +1,119 @@
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$make cleanall; 
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$make 
+/usr/bin/gcc -E main.c -o main.i -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+/usr/bin/gcc -E get_interface.c -o get_interface.i -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+/usr/bin/gcc -S main.i -o main.S -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+/usr/bin/gcc -S get_interface.i -o get_interface.S -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+/usr/bin/gcc -c main.S -fverbose-asm -o main.o -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+/usr/bin/gcc -c get_interface.S -fverbose-asm -o get_interface.o -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+/usr/bin/gcc -o main main.o get_interface.o -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$./main
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 172
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1776523608
+  Port ID : 4160751068
+  Command : NL80211_CMD_NEW_INTERFACE (7)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_IFINDEX (3): 6 
+NL80211_ATTR_IFNAME (4) : wlan2 
+NL80211_ATTR_WIPHY (1): wiphy#2 
+NL80211_ATTR_IFTYPE (5) : 3 (ap) 
+NL80211_ATTR_WDEV (153): 0x0000000200000001 (8589934593) 
+NL80211_ATTR_MAC (6): 02:00:00:00:02:00
+NL80211_ATTR_GENERATION (46) : 15
+NL80211_ATTR_4ADDR (83) : 0
+NL80211_ATTR_WIPHY_FREQ (38) : 5180 MHz
+NL80211_ATTR_WIPHY_CHANNEL_TYPE (39) : 1 (NL80211_CHAN_HT20)
+NL80211_ATTR_CHANNEL_WIDTH (159) : 1 (NL80211_CHAN_WIDTH_20)
+NL80211_ATTR_CENTER_FREQ1 (160) : 5180 MHz
+NL80211_ATTR_WIPHY_TX_POWER_LEVEL (98) : 2300 (mBm) / 23.00 dBm 
+NL80211_ATTR_SSID (52) : "VirtualBox_ubuntu_5GHz"
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 172
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1776523608
+  Port ID : 4160751068
+  Command : NL80211_CMD_NEW_INTERFACE (7)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_IFINDEX (3): 5 
+NL80211_ATTR_IFNAME (4) : wlan1 
+NL80211_ATTR_WIPHY (1): wiphy#1 
+NL80211_ATTR_IFTYPE (5) : 3 (ap) 
+NL80211_ATTR_WDEV (153): 0x0000000100000001 (4294967297) 
+NL80211_ATTR_MAC (6): 02:00:00:00:01:00
+NL80211_ATTR_GENERATION (46) : 13
+NL80211_ATTR_4ADDR (83) : 0
+NL80211_ATTR_WIPHY_FREQ (38) : 2412 MHz
+NL80211_ATTR_WIPHY_CHANNEL_TYPE (39) : 1 (NL80211_CHAN_HT20)
+NL80211_ATTR_CHANNEL_WIDTH (159) : 1 (NL80211_CHAN_WIDTH_20)
+NL80211_ATTR_CENTER_FREQ1 (160) : 2412 MHz
+NL80211_ATTR_WIPHY_TX_POWER_LEVEL (98) : 3000 (mBm) / 30.00 dBm 
+NL80211_ATTR_SSID (52) : "VirtualBox_ubuntu_2.4GHz"
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 84
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1776523608
+  Port ID : 4160751068
+  Command : NL80211_CMD_NEW_INTERFACE (7)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_WIPHY (1): wiphy#0 
+NL80211_ATTR_IFTYPE (5) : 10 (p2p_device) 
+NL80211_ATTR_WDEV (153): 0x0000000000000002 (2) 
+NL80211_ATTR_MAC (6): 42:00:00:00:00:00
+NL80211_ATTR_GENERATION (46) : 14
+NL80211_ATTR_4ADDR (83) : 0
+NL80211_ATTR_WIPHY_TX_POWER_LEVEL (98) : 2400 (mBm) / 24.00 dBm 
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 104
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1776523608
+  Port ID : 4160751068
+  Command : NL80211_CMD_NEW_INTERFACE (7)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_IFINDEX (3): 4 
+NL80211_ATTR_IFNAME (4) : wlan0 
+NL80211_ATTR_WIPHY (1): wiphy#0 
+NL80211_ATTR_IFTYPE (5) : 2 (station) 
+NL80211_ATTR_WDEV (153): 0x0000000000000001 (1) 
+NL80211_ATTR_MAC (6): 02:00:00:00:00:00
+NL80211_ATTR_GENERATION (46) : 14
+NL80211_ATTR_4ADDR (83) : 0
+NL80211_ATTR_WIPHY_TX_POWER_LEVEL (98) : 2400 (mBm) / 24.00 dBm 
+
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
