@@ -7,6 +7,7 @@ struct nlmsgerr *err;
 void *arg;
 {
     (void)nla;
+    (void)err;
     struct cb_context *ctx = (struct cb_context *)arg;
 
     ctx->err = err->error;
@@ -135,4 +136,5 @@ enum nl80211_commands cmd;
         if (nl80211_commands_type_map[i].cmd == cmd)
             return nl80211_commands_type_map[i].desc;
     }
+    return "UNKNOWN";
 }
