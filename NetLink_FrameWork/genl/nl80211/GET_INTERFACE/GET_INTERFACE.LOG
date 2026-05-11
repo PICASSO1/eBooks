@@ -1,15 +1,6 @@
 picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
-picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$make; 
-/usr/bin/gcc -E main.c -o main.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
-/usr/bin/gcc -E get_interface.c -o get_interface.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
-/usr/bin/gcc -S main.i -o main.S -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
-/usr/bin/gcc -S get_interface.i -o get_interface.S -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
-/usr/bin/gcc -c main.S -fverbose-asm -o main.o -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
-/usr/bin/gcc -c get_interface.S -fverbose-asm -o get_interface.o -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
-/usr/bin/gcc -o main main.o get_interface.o -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
-picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
-picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$sudo tcpdump -i nlmon0 -w AAAAAA.PCAPNG & 
-[1] 4065
+picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$sudo tcpdump -i nlmon0 -w CCCCC.PCAPNG &
+[1] 1533
 picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
 
 picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
@@ -23,8 +14,8 @@ Generic Family ID: nl80211 (0x0022)
     Echo:            : 0 
     Dump Inconsistent: 0 
     Dump Filtered    : 0 
-  Sequence: 1777130918
-  Port ID : 1321209837
+  Sequence: 1778507216
+  Port ID : 897582607
   Command : NL80211_CMD_NEW_INTERFACE (7)
   Version : 1
   Reserved: 0
@@ -52,8 +43,8 @@ Generic Family ID: nl80211 (0x0022)
     Echo:            : 0 
     Dump Inconsistent: 0 
     Dump Filtered    : 0 
-  Sequence: 1777130918
-  Port ID : 1321209837
+  Sequence: 1778507216
+  Port ID : 897582607
   Command : NL80211_CMD_NEW_INTERFACE (7)
   Version : 1
   Reserved: 0
@@ -81,8 +72,8 @@ Generic Family ID: nl80211 (0x0022)
     Echo:            : 0 
     Dump Inconsistent: 0 
     Dump Filtered    : 0 
-  Sequence: 1777130918
-  Port ID : 1321209837
+  Sequence: 1778507216
+  Port ID : 897582607
   Command : NL80211_CMD_NEW_INTERFACE (7)
   Version : 1
   Reserved: 0
@@ -103,8 +94,8 @@ Generic Family ID: nl80211 (0x0022)
     Echo:            : 0 
     Dump Inconsistent: 0 
     Dump Filtered    : 0 
-  Sequence: 1777130918
-  Port ID : 1321209837
+  Sequence: 1778507216
+  Port ID : 897582607
   Command : NL80211_CMD_NEW_INTERFACE (7)
   Version : 1
   Reserved: 0
@@ -120,10 +111,9 @@ NL80211_ATTR_WIPHY_TX_POWER_LEVEL (98) : 3000 (mBm) / 30.00 dBm
 
 picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
 picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$sudo kill -s SIGTERM $(pidof "tcpdump")
-50 packets captured
-67 packets received by filter
+108 packets captured
+125 packets received by filter
 0 packets dropped by kernel
 picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
-[1]+  已完成               sudo tcpdump -i nlmon0 -w AAAAAA.PCAPNG
-picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
+[1]+  已完成               sudo tcpdump -i nlmon0 -w CCCCC.PCAPNG
 picasso@picasso-VB:/media/genl/nl80211/GET_INTERFACE$
