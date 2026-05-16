@@ -1,0 +1,79 @@
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$sudo tcpdump -i nlmon0 -w EEEEE.PCAPNG & 
+[1] 4296
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$sudo ./main "wlan0" && sleep 3;
+scan_event_handler: Ignore CMD: NL80211_CMD_TRIGGER_SCAN 
+scan_event_handler: NL80211_CMD_NEW_SCAN_RESULTS 
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 456
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1778941232
+  Port ID : 1669337300
+  Command : NL80211_CMD_NEW_SCAN_RESULTS (34)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_IFINDEX (3): 4 
+NL80211_ATTR_WDEV (153): 0x0000000000000001 (1) 
+NL80211_ATTR_GENERATION (46) : 5738
+NL80211_ATTR_BSS (47): Len: 404 
+  NL80211_BSS_BSSID (1): 02:00:00:00:01:00
+  NL80211_BSS_FREQUENCY (2): 2412 MHz
+  NL80211_BSS_TSF (3): 0x651F008180FCF (1778941230059471)
+  NL80211_BSS_BEACON_INTERVAL (4): 100 TUs
+  NL80211_BSS_CAPABILITY (5): 0x0401
+  NL80211_BSS_INFORMATION_ELEMENTS (6): Len: 140 
+  NL80211_BSS_SIGNAL_MBM (7): -20.00 dBm
+  NL80211_BSS_SEEN_MS_AGO (10): 0 ms
+  NL80211_BSS_BEACON_IES (11): Len: 146 
+  NL80211_BSS_CHAN_WIDTH (12): NL80211_BSS_CHAN_WIDTH_20 (0)
+  NL80211_BSS_BEACON_TSF (13): 0x651f0081866a7 (1778941230081703)
+  NL80211_BSS_PRESP_DATA (14): 
+  NL80211_BSS_LAST_SEEN_BOOTTIME (15): 0x18FF81FB09CF (27485676440015)
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 484
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1778941232
+  Port ID : 1669337300
+  Command : NL80211_CMD_NEW_SCAN_RESULTS (34)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_IFINDEX (3): 4 
+NL80211_ATTR_WDEV (153): 0x0000000000000001 (1) 
+NL80211_ATTR_GENERATION (46) : 5738
+NL80211_ATTR_BSS (47): Len: 432 
+  NL80211_BSS_BSSID (1): 02:00:00:00:02:00
+  NL80211_BSS_FREQUENCY (2): 5180 MHz
+  NL80211_BSS_TSF (3): 0x651F00822CF93 (1778941230763923)
+  NL80211_BSS_BEACON_INTERVAL (4): 100 TUs
+  NL80211_BSS_CAPABILITY (5): 0x0001
+  NL80211_BSS_INFORMATION_ELEMENTS (6): Len: 154 
+  NL80211_BSS_SIGNAL_MBM (7): -27.00 dBm
+  NL80211_BSS_SEEN_MS_AGO (10): 0 ms
+  NL80211_BSS_BEACON_IES (11): Len: 160 
+  NL80211_BSS_CHAN_WIDTH (12): NL80211_BSS_CHAN_WIDTH_20 (0)
+  NL80211_BSS_BEACON_TSF (13): 0x651f0076e6de2 (1778941218942434)
+  NL80211_BSS_PRESP_DATA (14): 
+  NL80211_BSS_LAST_SEEN_BOOTTIME (15): 0x18FFABFA906F (27486381052015)
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$sudo kill -s SIGTERM $(pidof "tcpdump")
+91 packets captured
+108 packets received by filter
+0 packets dropped by kernel
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$
+[1]+  已完成               sudo tcpdump -i nlmon0 -w EEEEE.PCAPNG
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$
+picasso@picasso-VB:/media/genl/nl80211/TRIGGER_GET_SCAN_v2$
