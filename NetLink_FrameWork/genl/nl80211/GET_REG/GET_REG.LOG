@@ -1,0 +1,131 @@
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$make cleanall && make
+/usr/bin/gcc -E main.c -o main.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3
+/usr/bin/gcc -E get_reg.c -o get_reg.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3
+/usr/bin/gcc -S main.i -o main.S -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -S get_reg.i -o get_reg.S -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -c main.S -fverbose-asm -o main.o -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -c get_reg.S -fverbose-asm -o get_reg.o -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -o main main.o get_reg.o -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$sudo tcpdump -i nlmon0 -w GET_REG.PCAPNG & 
+[1] 2514
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$sudo ./main && sleep 3;
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 700
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1779595121
+  Port ID : 3699378654
+  Command : NL80211_CMD_GET_REG (31)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_REG_ALPHA2 (33): US
+NL80211_ATTR_DFS_REGION (146): NL80211_DFS_FCC (1)
+NL80211_ATTR_REG_RULES (34): len = 660
+  Rule[00]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000000
+    NL80211_ATTR_FREQ_RANGE_START (2): 902000 KHz / 902.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 904000 KHz / 904.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 2000 KHz / 2.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 30.00 dBm (3000 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[01]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000000
+    NL80211_ATTR_FREQ_RANGE_START (2): 904000 KHz / 904.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 920000 KHz / 920.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 16000 KHz / 16.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 30.00 dBm (3000 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[02]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000000
+    NL80211_ATTR_FREQ_RANGE_START (2): 920000 KHz / 920.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 928000 KHz / 928.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 8000 KHz / 8.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 30.00 dBm (3000 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[03]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000000
+    NL80211_ATTR_FREQ_RANGE_START (2): 2400000 KHz / 2400.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 2472000 KHz / 2472.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 40000 KHz / 40.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 30.00 dBm (3000 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[04]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000800
+    NL80211_ATTR_FREQ_RANGE_START (2): 5150000 KHz / 5150.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 5250000 KHz / 5250.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 80000 KHz / 80.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 23.00 dBm (2300 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[05]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000810
+    NL80211_ATTR_FREQ_RANGE_START (2): 5250000 KHz / 5250.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 5350000 KHz / 5350.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 80000 KHz / 80.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 24.00 dBm (2400 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[06]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000010
+    NL80211_ATTR_FREQ_RANGE_START (2): 5470000 KHz / 5470.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 5730000 KHz / 5730.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 160000 KHz / 160.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 24.00 dBm (2400 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[07]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000800
+    NL80211_ATTR_FREQ_RANGE_START (2): 5730000 KHz / 5730.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 5850000 KHz / 5850.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 80000 KHz / 80.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 30.00 dBm (3000 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[08]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000888
+    NL80211_ATTR_FREQ_RANGE_START (2): 5850000 KHz / 5850.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 5895000 KHz / 5895.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 40000 KHz / 40.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 27.00 dBm (2700 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[09]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000088
+    NL80211_ATTR_FREQ_RANGE_START (2): 5925000 KHz / 5925.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 7125000 KHz / 7125.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 320000 KHz / 320.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 12.00 dBm (1200 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+  Rule[10]: len = 56
+    NL80211_ATTR_REG_RULE_FLAGS (1): 0x00000000
+    NL80211_ATTR_FREQ_RANGE_START (2): 57240000 KHz / 57240.000 MHz
+    NL80211_ATTR_FREQ_RANGE_END (3): 71000000 KHz / 71000.000 MHz
+    NL80211_ATTR_FREQ_RANGE_MAX_BW (4): 2160000 KHz / 2160.000 MHz
+    NL80211_ATTR_POWER_RULE_MAX_ANT_GAIN (5): 0.00 dBi (0 mBi)
+    NL80211_ATTR_POWER_RULE_MAX_EIRP (6): 40.00 dBm (4000 mBm)
+    NL80211_ATTR_DFS_CAC_TIME (7): 0 ms
+
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$sudo kill -s SIGTERM $(pidof "tcpdump")
+50 packets captured
+67 packets received by filter
+0 packets dropped by kernel
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$
+[1]+  已完成               sudo tcpdump -i nlmon0 -w GET_REG.PCAPNG
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$
+picasso@picasso-VB:/media/genl/nl80211/GET_REG$
