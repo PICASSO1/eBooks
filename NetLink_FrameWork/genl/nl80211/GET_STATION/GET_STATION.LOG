@@ -1,0 +1,210 @@
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$make cleanall && make; 
+/usr/bin/gcc -E main.c -o main.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3
+/usr/bin/gcc -E get_station.c -o get_station.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3
+/usr/bin/gcc -S main.i -o main.S -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -S get_station.i -o get_station.S -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -c main.S -fverbose-asm -o main.o -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -c get_station.S -fverbose-asm -o get_station.o -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -o main main.o get_station.o -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$sudo tcpdump -i nlmon0 -w GET_STATION.PCAPNG & 
+[1] 1719
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$sudo ./main "wlan2" && sleep 3;
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 1168
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1779807342
+  Port ID : 2868905667
+  Command : NL80211_CMD_NEW_STATION (19)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_IFINDEX (3): 6
+NL80211_ATTR_MAC (6): 02:00:00:00:00:00
+NL80211_ATTR_GENERATION (46): 1
+NL80211_ATTR_STA_INFO (21): Len = 1116
+  NL80211_STA_INFO_INACTIVE_TIME (1): 2404 ms
+  NL80211_STA_INFO_RX_BYTES (2): 5995 Bytes
+  NL80211_STA_INFO_TX_BYTES (3): 217 Bytes
+  NL80211_STA_INFO_SIGNAL (7): -27 dBm
+  NL80211_STA_INFO_TX_BITRATE (8): Len = 16
+    NL80211_RATE_INFO_BITRATE (1): 6.0 MBit/s
+    NL80211_RATE_INFO_40_MHZ_WIDTH (3): NO
+    NL80211_RATE_INFO_SHORT_GI (4): NO
+    NL80211_RATE_INFO_BITRATE32 (5): 6.0 MBit/s
+    NL80211_RATE_INFO_80_MHZ_WIDTH (8): NO
+    NL80211_RATE_INFO_80P80_MHZ_WIDTH (9): NO
+    NL80211_RATE_INFO_160_MHZ_WIDTH (10): NO
+    NL80211_RATE_INFO_10_MHZ_WIDTH (11): NO
+    NL80211_RATE_INFO_5_MHZ_WIDTH (12): NO
+  NL80211_STA_INFO_RX_PACKETS (9): 49 Packets
+  NL80211_STA_INFO_TX_PACKETS (10): 3 Packets
+  NL80211_STA_INFO_TX_RETRIES (11): 0
+  NL80211_STA_INFO_TX_FAILED (12): 0
+  NL80211_STA_INFO_SIGNAL_AVG (13): -27 dBm
+  NL80211_STA_INFO_RX_BITRATE (14): Len = 16
+    NL80211_RATE_INFO_BITRATE (1): 6.0 MBit/s
+    NL80211_RATE_INFO_40_MHZ_WIDTH (3): NO
+    NL80211_RATE_INFO_SHORT_GI (4): NO
+    NL80211_RATE_INFO_BITRATE32 (5): 6.0 MBit/s
+    NL80211_RATE_INFO_80_MHZ_WIDTH (8): NO
+    NL80211_RATE_INFO_80P80_MHZ_WIDTH (9): NO
+    NL80211_RATE_INFO_160_MHZ_WIDTH (10): NO
+    NL80211_RATE_INFO_10_MHZ_WIDTH (11): NO
+    NL80211_RATE_INFO_5_MHZ_WIDTH (12): NO
+  NL80211_STA_INFO_BSS_PARAM (15): Len = 20
+    NL80211_STA_BSS_PARAM_CTS_PROT (1): NO
+    NL80211_STA_BSS_PARAM_SHORT_PREAMBLE (2): NO
+    NL80211_STA_BSS_PARAM_SHORT_SLOT_TIME (3): YES
+    NL80211_STA_BSS_PARAM_DTIM_PERIOD (4): 2 µs
+    NL80211_STA_BSS_PARAM_BEACON_INTERVAL (5): 100 µs
+  NL80211_STA_INFO_CONNECTED_TIME (16): 481 seconds
+  NL80211_STA_INFO_STA_FLAGS (17): 0x000000aa000000fe (730144440574)
+    NL80211_STA_FLAG_AUTHORIZED (1): YES
+    NL80211_STA_FLAG_SHORT_PREAMBLE (2): Long
+    NL80211_STA_FLAG_WME (3): YES
+    NL80211_STA_FLAG_MFP (4): NO
+    NL80211_STA_FLAG_AUTHENTICATED (5): YES
+    NL80211_STA_FLAG_TDLS_PEER (6): NO
+    NL80211_STA_FLAG_ASSOCIATED (7): YES
+  NL80211_STA_INFO_RX_BYTES64 (23): 5995 Bytes
+  NL80211_STA_INFO_TX_BYTES64 (24): 217 Bytes
+  NL80211_STA_INFO_RX_DROP_MISC (28): 0
+  NL80211_STA_INFO_TID_STATS (31): Len = 884
+    TID[1]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 32
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[2]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[3]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[4]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[5]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[6]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[7]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[8]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[9]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[10]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[11]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[12]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[13]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[14]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[15]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[16]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 0
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+    TID[17]: Len = 48
+      NL80211_TID_STATS_RX_MSDU (1): 0
+      NL80211_TID_STATS_TX_MSDU (2): 3
+      NL80211_TID_STATS_TX_MSDU_RETRIES (3): 0
+      NL80211_TID_STATS_TX_MSDU_FAILED (4): 0
+  NL80211_STA_INFO_RX_DURATION (32): 0 µs
+  NL80211_STA_INFO_TX_DURATION (39): 0 µs
+  NL80211_STA_INFO_ASSOC_AT_BOOTTIME (42): 2451176690571 ns
+
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$sudo kill -s SIGTERM $(pidof "tcpdump")
+15 packets captured
+32 packets received by filter
+0 packets dropped by kernel
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$
+[1]+  已完成               sudo tcpdump -i nlmon0 -w GET_STATION.PCAPNG
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$iw dev wlan2 station dump; 
+Station 02:00:00:00:00:00 (on wlan2)
+	inactive time:	18988 ms
+	rx bytes:	5995
+	rx packets:	49
+	tx bytes:	217
+	tx packets:	3
+	tx retries:	0
+	tx failed:	0
+	rx drop misc:	0
+	signal:  	-27 dBm
+	signal avg:	-27 dBm
+	tx bitrate:	6.0 MBit/s
+	tx duration:	0 us
+	rx bitrate:	6.0 MBit/s
+	rx duration:	0 us
+	authorized:	yes
+	authenticated:	yes
+	associated:	yes
+	preamble:	long
+	WMM/WME:	yes
+	MFP:		no
+	TDLS peer:	no
+	DTIM period:	2
+	beacon interval:100
+	short slot time:yes
+	connected time:	497 seconds
+	associated at [boottime]:	2451.176s
+	associated at:	1779806861050 ms
+	current time:	1779807358550 ms
+picasso@picasso-VB:/media/genl/nl80211/GET_STATION$
