@@ -5,33 +5,28 @@
  *
  * Author: Pablo Picasso G.
  *
- * Version: 1.0.0.build052626
+ * Version: 1.0.0.build053026
  *
- * Date: 2026 / 05 / 26
+ * Date: 2026 / 05 / 30
  *
  * Description: 
  *
- * 01. `NL80211_CMD_GET_STATION` 就相當於：
- *     - iw dev <wlan2> station dump             所有連線到 wlan2 AP 的 Stations
- *     - iw dev <wlan2> station get <STA_MAC>    連線到 wlan2 AP 的某一臺 Station
+ * 01. `NL80211_CMD_GET_SURVEY` 就相當於：`iw dev <wlanX> survey dump` or `iw phy <phyX> survey dump`
+ *     它的功能是在詢問 WLAN driver：你最近觀察各個 Channel 的 RF 使用狀況如何？
  * 
- * 02. 關於 nla_parse_nested(); 函式的回傳值方面：
- *     top-level nla_parse() 失敗
- *     return NL_SKIP
- *
- *     核心 nested parse 失敗，例如 STA_INFO / REG_RULES 整包
- *     return NL_SKIP
- *
- *     nested list item parse 失敗，例如 Rule[x] / TID[x] / Freq[x]
- *     continue;
- * 
- *     optional sub-nested parse 失敗，例如 TX_BITRATE / RX_BITRATE / BSS_PARAM / TXQ_STATS
- *     印 error，然後不中斷
+ * 02. WLAN Driver 的回覆類似像這樣：
+ *     Survey data from wlan2
+ *         frequency:             5180 MHz
+ *         noise:                 -95 dBm
+ *         channel active time:   15432 ms
+ *         channel busy time:     823 ms
+ *         channel receive time:  210 ms
+ *         channel transmit time: 58 ms
  *
 (*)?*/
 
 #include "main.h"
-#include "get_station.h"
+#include "get_survey.h"
 
 int 
 main(argc, argv, envp)
@@ -45,11 +40,11 @@ char **envp;
     int ret = -1;
     struct nl80211_state state;
 
-    if (argc != 2) {
+  if (argc != 2) {
         fprintf(stderr, "Please input a AP interface, e.g. wlan1 or wlan2 \n");
 
         exit(EXIT_FAILURE);
-    }
+  }
 
     bzero(&state, sizeof(struct nl80211_state));
     if (init_nl80211(&state) < 0) {
@@ -58,7 +53,7 @@ char **envp;
         goto finish;
     }
 
-    ret = get_station(&state, argv[1]);
+    ret = get_survey(&state, argv[1]);
     if (ret < 0) {
         fprintf(stderr, "nl80211_trigger_scan() failed: %d \n", ret);
         
@@ -237,4 +232,19 @@ enum nl80211_dfs_regions cmd;
         case NL80211_DFS_JP:    return "NL80211_DFS_JP";
         default:                return "UNKNOWN";
     }
+}
+
+unsigned long long
+nla_raw_u64(attr)
+struct nlattr *attr;
+{
+    unsigned long long raw = 0;
+    int len = nla_len(attr);
+    size_t copy_len;
+
+    copy_len = (len < (int)sizeof(raw)) ? (size_t)len : sizeof(raw);
+
+    memcpy(&raw, nla_data(attr), copy_len);
+
+    return raw;
 }

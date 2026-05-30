@@ -1,0 +1,715 @@
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$sudo tcpdump -i nlmon0 -w GET_SURVEY.PCAPNG & 
+[1] 1802
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$sudo ./main "wlan2" && sleep 3;
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2412 MHz (0x000000000000096C)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2417 MHz (0x0000000000000971)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2422 MHz (0x0000000000000976)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2427 MHz (0x000000000000097B)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2432 MHz (0x0000000000000980)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2437 MHz (0x0000000000000985)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2442 MHz (0x000000000000098A)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2447 MHz (0x000000000000098F)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2452 MHz (0x0000000000000994)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2457 MHz (0x0000000000000999)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 2462 MHz (0x000000000000099E)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 64 us (0x0000000000000040)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 8 us (0x0000000000000008)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5180 MHz (0x000000000000143C)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5200 MHz (0x0000000000001450)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5220 MHz (0x0000000000001464)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5240 MHz (0x0000000000001478)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5260 MHz (0x000000000000148C)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5280 MHz (0x00000000000014A0)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 204 us (0x00000000000000CC)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 25 us (0x0000000000000019)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5300 MHz (0x00000000000014B4)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5320 MHz (0x00000000000014C8)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5500 MHz (0x000000000000157C)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5520 MHz (0x0000000000001590)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5540 MHz (0x00000000000015A4)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5560 MHz (0x00000000000015B8)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5580 MHz (0x00000000000015CC)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5600 MHz (0x00000000000015E0)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5620 MHz (0x00000000000015F4)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 120 us (0x0000000000000078)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 15 us (0x000000000000000F)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5640 MHz (0x0000000000001608)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5660 MHz (0x000000000000161C)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5680 MHz (0x0000000000001630)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 128 us (0x0000000000000080)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 16 us (0x0000000000000010)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5700 MHz (0x0000000000001644)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5745 MHz (0x0000000000001671)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 176 us (0x00000000000000B0)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 22 us (0x0000000000000016)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5765 MHz (0x0000000000001685)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 124 us (0x000000000000007C)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 15 us (0x000000000000000F)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5785 MHz (0x0000000000001699)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5805 MHz (0x00000000000016AD)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 112 us (0x0000000000000070)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 14 us (0x000000000000000E)
+
+Generic Family ID: nl80211 (0x0022) 
+  Length  : 72
+  Flags   : 0x0002
+    Request          : 0 
+    Multipart Message: 1 
+    Ack:             : 0 
+    Echo:            : 0 
+    Dump Inconsistent: 0 
+    Dump Filtered    : 0 
+  Sequence: 1780109634
+  Port ID : 306186006
+  Command : NL80211_CMD_NEW_SURVEY_RESULTS (51)
+  Version : 1
+  Reserved: 0
+NL80211_ATTR_SURVEY_INFO (84): Len = 40
+  NL80211_SURVEY_INFO_FREQUENCY (1): 5825 MHz (0x00000000000016C1)
+  NL80211_SURVEY_INFO_NOISE (2): -92 dBm  (0x00000000000000A4)
+  NL80211_SURVEY_INFO_TIME (4): 44 us (0x000000000000002C)
+  NL80211_SURVEY_INFO_TIME_BUSY (5): 5 us (0x0000000000000005)
+
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$sudo kill -s SIGTERM $(pidof "tcpdump")
+15 packets captured
+32 packets received by filter
+0 packets dropped by kernel
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$
+[1]+  已完成               sudo tcpdump -i nlmon0 -w GET_SURVEY.PCAPNG
+picasso@picasso-VB:/media/genl/nl80211/GET_SURVEY$

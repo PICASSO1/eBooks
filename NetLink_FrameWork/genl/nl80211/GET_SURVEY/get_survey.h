@@ -1,5 +1,5 @@
-#ifndef __GET_STATION_H__
-#define __GET_STATION_H__
+#ifndef __GET_SURVEY_H__
+#define __GET_SURVEY_H__
 
 #include <errno.h>
 #include <linux/nl80211.h>
@@ -21,6 +21,6 @@ int valid_handler(struct nl_msg *, void *);
 int finish_handler(struct nl_msg *, void *);
 int ack_handler(struct nl_msg *, void *);
 
-int get_station(struct nl80211_state *, const char *);
+int get_survey(struct nl80211_state *, const char *);
 
-#endif    /* __GET_STATION_H__ */
+#endif    /* __GET_SURVEY_H__ */

@@ -725,7 +725,7 @@ void *arg;
 }
 
 int 
-get_reg(state, ifname)
+get_station(state, ifname)
 struct nl80211_state *state;
 const char *ifname;
 {
