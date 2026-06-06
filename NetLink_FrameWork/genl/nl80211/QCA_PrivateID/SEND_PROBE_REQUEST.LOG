@@ -1,0 +1,28 @@
+picasso@picasso-VB:/media/QCA_PrivateID$
+picasso@picasso-VB:/media/QCA_PrivateID$make cleanall && make; 
+/usr/bin/gcc -E main.c -o main.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3
+/usr/bin/gcc -E send_probe_request.c -o send_probe_request.i -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3
+/usr/bin/gcc -S main.i -o main.S -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -S send_probe_request.i -o send_probe_request.S -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -c main.S -fverbose-asm -o main.o -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -c send_probe_request.S -fverbose-asm -o send_probe_request.o -ggdb -Wall -Wextra -O2
+/usr/bin/gcc -o main main.o send_probe_request.o -ggdb -Wall -Wextra -O2 -I/usr/include/libnl3 -lnl-3 -lnl-genl-3
+picasso@picasso-VB:/media/QCA_PrivateID$
+picasso@picasso-VB:/media/QCA_PrivateID$sudo tcpdump -i nlmon0 -w SEND_PROBE_REQUEST.PCAPNG & 
+[1] 2653
+picasso@picasso-VB:/media/QCA_PrivateID$tcpdump: listening on nlmon0, link-type NETLINK (Linux netlink), capture size 262144 bytes
+
+picasso@picasso-VB:/media/QCA_PrivateID$
+picasso@picasso-VB:/media/QCA_PrivateID$sudo ./main "wlan0" && sleep 1;
+nl_recvmsgs() failed: Operation not supported (-10)
+netlink error: Operation not supported (-95)
+send_probe_request() failed: -95 
+
+picasso@picasso-VB:/media/QCA_PrivateID$
+picasso@picasso-VB:/media/QCA_PrivateID$sudo kill -s SIGTERM $(pidof "tcpdump")
+14 packets captured
+26 packets received by filter
+0 packets dropped by kernel
+picasso@picasso-VB:/media/QCA_PrivateID$
+[1]+  已完成               sudo tcpdump -i nlmon0 -w SEND_PROBE_REQUEST.PCAPNG
+picasso@picasso-VB:/media/QCA_PrivateID$
